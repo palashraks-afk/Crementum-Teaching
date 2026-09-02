@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { Providers } from "@/components/Providers";
+import { ChatMount } from "@/components/ChatMount";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
@@ -49,11 +49,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        <Providers>
-          <SiteHeader />
-          <main id="main">{children}</main>
-          <SiteFooter />
-        </Providers>
+        <SiteHeader />
+        <main id="main">{children}</main>
+        <SiteFooter />
+        <ChatMount />
       </body>
     </html>
   );

@@ -18,7 +18,7 @@ export default function NotFound() {
               →
             </span>
           </Link>
-          <Link href="/dashboard" className="btn btn--ghost">
+          <Link href="/book" className="btn btn--ghost">
             Request a session
             <span className="btn__arrow" aria-hidden="true">
               →

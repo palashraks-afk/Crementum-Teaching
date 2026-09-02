@@ -141,7 +141,7 @@ export function CourseIndex({ label }: { label: string }) {
           >
             {shown.map((course) => (
               <li key={course.slug}>
-                <Link href={`/dashboard?course=${course.slug}`} className={styles.row}>
+                <Link href={`/book?course=${course.slug}`} className={styles.row}>
                   <span className={styles.name}>
                     <Highlighted name={course.name} query={query} />
                   </span>
@@ -164,7 +164,7 @@ export function CourseIndex({ label }: { label: string }) {
             transition={{ duration: 0.15 }}
           >
             No match.{" "}
-            <Link href="/dashboard" className="link">
+            <Link href="/book" className="link">
               Ask for it anyway
             </Link>
             .

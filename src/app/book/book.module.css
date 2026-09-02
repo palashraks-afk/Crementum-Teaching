@@ -414,3 +414,36 @@
     top: 5.5rem;
   }
 }
+
+/* ---------- booking states ---------- */
+
+.card[data-state="pending"]   { border-left-color: var(--pending); }
+.card[data-state="confirmed"] { border-left-color: var(--confirmed); }
+.card[data-state="cancelled"] { border-left-color: var(--cancelled); opacity: 0.72; }
+
+.pill[data-state] {
+  text-transform: capitalize;
+}
+
+.pill[data-state="pending"] {
+  background: var(--pending-bg);
+  color: var(--pending);
+}
+
+.pill[data-state="confirmed"] {
+  background: var(--confirmed-bg);
+  color: var(--confirmed);
+}
+
+.pill[data-state="cancelled"] {
+  background: var(--cancelled-bg);
+  color: var(--cancelled);
+}
+
+.barNote {
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}

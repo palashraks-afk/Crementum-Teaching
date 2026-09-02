@@ -15,8 +15,8 @@ export function SiteFooter() {
           <p className={styles.mission}>
             501(c)(3) · Free 1-on-1 tutoring · {SITE.stats.courses} courses
           </p>
-          <Link href="/dashboard" className="btn">
-            Dashboard
+          <Link href="/book" className="btn">
+            Book a Session
           </Link>
         </div>
 

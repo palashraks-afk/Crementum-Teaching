@@ -48,10 +48,6 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link href="/dashboard" className={`btn ${styles.navCta}`}>
-          Dashboard
-        </Link>
-
         <button
           type="button"
           className={styles.toggle}
@@ -70,7 +66,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/dashboard" className={styles.drawerLink}>
+          <Link href="/book" className={styles.drawerLink}>
             Book Free Session
           </Link>
         </div>

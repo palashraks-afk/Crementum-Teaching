@@ -23,7 +23,7 @@ export default function SubjectsPage() {
           <>
             This is the working list, not a wish list — every course here has tutors behind it
             right now. If yours is missing, ask anyway on the{" "}
-            <Link href="/dashboard" className="link">
+            <Link href="/book" className="link">
               request form
             </Link>
             .
@@ -50,7 +50,7 @@ export default function SubjectsPage() {
               <ul className={styles.courses}>
                 {courses.map((course) => (
                   <li key={course.slug}>
-                    <Link href={`/dashboard?course=${course.slug}`} className={styles.course}>
+                    <Link href={`/book?course=${course.slug}`} className={styles.course}>
                       <span>{course.name}</span>
                       <span className={styles.go} aria-hidden="true">
                         →
@@ -69,7 +69,7 @@ export default function SubjectsPage() {
           <h2 className={styles.closeTitle}>
             Pick the one you have been avoiding.
           </h2>
-          <Link href="/dashboard" className="btn">
+          <Link href="/book" className="btn">
             Request a session
             <span className="btn__arrow" aria-hidden="true">
               →

@@ -67,9 +67,9 @@ export const FAQ = [
 /* The logo links home and the Book button links to the dashboard, so neither
    needs a nav slot. Start a Chapter lives on the Branches page. */
 export const NAV = [
+  { href: "/book", label: "Book a Session" },
   { href: "/subjects", label: "Subjects" },
   { href: "/branches", label: "Branches" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "/account", label: "Account" },
 ] as const;

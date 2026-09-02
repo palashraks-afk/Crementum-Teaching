@@ -1,11 +1,12 @@
 "use client";
 
-import { useActionState, useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useActionState, useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { submitSessionRequest } from "@/server/actions";
 import { EMPTY_STATE } from "@/server/schema";
 import { CORES, CORE_BY_ID, COURSES, courseBySlug, type CoreId } from "@/content/catalog";
 import { Honeypot, SelectField, TextArea, TextField } from "./Field";
+import { getClientId } from "./client-id";
 import styles from "./Form.module.css";
 
 const GRADES = ["6th", "7th", "8th", "9th", "10th", "11th", "12th", "College", "Other"].map(
@@ -23,36 +24,45 @@ function todayISO() {
 const STORE_KEY = "crementum:contact";
 
 type Props = {
-  defaultName?: string | null;
-  defaultEmail?: string | null;
+  /** Called after a booking saves, so the list above can refetch. */
+  onBooked?: () => void;
 };
 
-export function SessionRequestForm({ defaultName, defaultEmail }: Props) {
+export function SessionRequestForm({ onBooked }: Props) {
   const [state, formAction, pending] = useActionState(submitSessionRequest, EMPTY_STATE);
   const params = useSearchParams();
-  const router = useRouter();
 
-  // Pull the newly-created booking into the cards above without a manual reload.
+  // Fire once per successful booking. Keeping onBooked out of the deps (and
+  // behind a ref) stops a new callback identity from re-triggering the effect,
+  // which would bump the parent's refresh key forever.
+  const notified = useRef(false);
+  const onBookedRef = useRef(onBooked);
+  onBookedRef.current = onBooked;
+
   useEffect(() => {
-    if (state.ok) router.refresh();
-  }, [state.ok, router]);
+    if (state.ok && !notified.current) {
+      notified.current = true;
+      onBookedRef.current?.();
+    }
+  }, [state.ok]);
 
   const requested = params.get("course") ?? "";
   const preselected = courseBySlug(requested);
 
   const [filter, setFilter] = useState<CoreId | "all">(preselected?.core ?? "all");
   const [remembered, setRemembered] = useState<{ name: string; email: string } | null>(null);
+  const [clientId, setClientId] = useState("");
 
-  // Signed-in details win; otherwise fall back to whatever was saved locally.
+  // Restore this browser's id and any details it remembered from last time.
   useEffect(() => {
-    if (defaultName && defaultEmail) return;
+    setClientId(getClientId());
     try {
       const raw = localStorage.getItem(STORE_KEY);
       if (raw) setRemembered(JSON.parse(raw));
     } catch {
       /* ignore unreadable storage */
     }
-  }, [defaultName, defaultEmail]);
+  }, []);
 
   const courseOptions = useMemo(
     () =>
@@ -64,8 +74,8 @@ export function SessionRequestForm({ defaultName, defaultEmail }: Props) {
   );
 
   const values = state.values ?? {};
-  const nameValue = values.name ?? defaultName ?? remembered?.name ?? "";
-  const emailValue = values.email ?? defaultEmail ?? remembered?.email ?? "";
+  const nameValue = values.name ?? remembered?.name ?? "";
+  const emailValue = values.email ?? remembered?.email ?? "";
   const today = todayISO();
 
   function remember(form: FormData) {
@@ -84,11 +94,11 @@ export function SessionRequestForm({ defaultName, defaultEmail }: Props) {
       <div className={styles.done}>
         <p className="eyebrow">Request received</p>
         <h2 className={styles.doneTitle}>
-          {defaultName ? `Thanks, ${defaultName.split(" ")[0]}.` : "It's in."} Watch your email.
+          It&apos;s in. Watch your email.
         </h2>
         <p className={styles.doneBody}>
-          It's in the list above as Pending. A tutor reaches out to set a time, usually within
-          hours.
+          It&apos;s in the list above as Pending. A tutor reaches out to set a time, usually
+          within hours.
         </p>
         <button
           type="button"
@@ -114,6 +124,7 @@ export function SessionRequestForm({ defaultName, defaultEmail }: Props) {
       noValidate
     >
       <Honeypot />
+      <input type="hidden" name="clientId" value={clientId} />
 
       {state.message ? (
         <p className={styles.notice} role="alert">

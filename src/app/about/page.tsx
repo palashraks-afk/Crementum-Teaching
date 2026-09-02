@@ -100,7 +100,7 @@ export default function AboutPage() {
       <section className="band band--tight band--dark">
         <div className={`shell ${styles.close}`}>
           <h2 className={styles.closeTitle}>Book one. It costs nothing.</h2>
-          <Link href="/dashboard" className="btn">
+          <Link href="/book" className="btn">
             Book a session
             <span className="btn__arrow" aria-hidden="true">
               →

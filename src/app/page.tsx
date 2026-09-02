@@ -30,7 +30,7 @@ export default function HomePage() {
             </h1>
             <p className={styles.sub}>Free 1-on-1 tutoring. Math, Science, Humanities & Speech.</p>
             <div className={styles.actions}>
-              <Link href="/dashboard" className="btn">
+              <Link href="/book" className="btn">
                 Book Free Session
               </Link>
               <Link href="/about" className="link">
@@ -133,7 +133,7 @@ export default function HomePage() {
         <div className="shell">
           <AnimatedIn>
             <h2 className={styles.closeTitle}>Ready?</h2>
-            <Link href="/dashboard" className="btn">
+            <Link href="/book" className="btn">
               Book Free Session
             </Link>
           </AnimatedIn>

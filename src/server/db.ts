@@ -105,6 +105,9 @@ export async function getDb(): Promise<Client> {
         session_requests: {
           user_id: "TEXT",
           scheduled_at: "TEXT",
+          // Random per-browser id. Lets a student see and edit their own
+          // bookings without an account, and without exposing anyone else's.
+          client_id: "TEXT",
         },
         branches: {
           school: "TEXT",
