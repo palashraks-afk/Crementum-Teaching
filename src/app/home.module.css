@@ -127,3 +127,78 @@
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1.5rem;
 }
+
+/* ---------- about us ---------- */
+
+.about {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.aboutMedia {
+  min-width: 0;
+}
+
+/* The frame carries a labelled placeholder, so a missing photo degrades to an
+   honest empty frame instead of a broken-image icon. */
+.photo {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 2;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+}
+
+.photo::after {
+  content: "photo pending — save as /public/about-students.jpg";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.photo img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* A failed image leaves no box, so the label underneath shows through. */
+.photo img:not([src]),
+.photo img[src=""] {
+  display: none;
+}
+
+.aboutText {
+  min-width: 0;
+}
+
+.aboutTitle {
+  font-size: clamp(1.9rem, 1.3rem + 2.4vw, 2.9rem);
+  margin: 0.6rem 0 1rem;
+}
+
+.aboutBody {
+  color: var(--ink-70);
+  max-width: 38ch;
+  margin-bottom: 0.9rem;
+}
+
+@media (min-width: 52rem) {
+  .about {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3.5rem;
+  }
+}

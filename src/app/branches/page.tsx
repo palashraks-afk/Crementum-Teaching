@@ -21,7 +21,7 @@ export default async function BranchesPage() {
     <>
       <PageHeader
         variant="rule"
-        eyebrow={`${SITE.stats.branches} branches`}
+        eyebrow="Branches"
         title="Run locally. Open anywhere."
         lede="Sessions are online, so a student with no branch nearby gets matched just as fast."
       />

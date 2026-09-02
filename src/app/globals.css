@@ -32,7 +32,7 @@
   --rule-invert: rgba(255, 255, 255, 0.18);
 
   --display: var(--font-display), "Helvetica Neue", Arial, sans-serif;
-  --body: var(--font-body), Georgia, "Times New Roman", serif;
+  --body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
   --utility: var(--font-utility), ui-monospace, "SF Mono", Menlo, monospace;
 
   /* Section padding lives on .band only, so two rules can never fight
@@ -67,16 +67,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Roboto needs more weight and tighter tracking than a true display face to
+   read as a heading rather than as body text scaled up. */
 h1,
 h2,
 h3,
 h4 {
   font-family: var(--display);
-  font-weight: 600;
+  font-weight: 900;
   line-height: 0.98;
-  letter-spacing: -0.032em;
+  letter-spacing: -0.035em;
   margin: 0;
   text-wrap: balance;
+}
+
+h3,
+h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 p {

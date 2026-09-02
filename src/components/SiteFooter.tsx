@@ -13,7 +13,7 @@ export function SiteFooter() {
             <p className={styles.wordmark}>Crementum Teaching</p>
           </div>
           <p className={styles.mission}>
-            501(c)(3) · Free 1-on-1 tutoring · {SITE.stats.branches} branches
+            501(c)(3) · Free 1-on-1 tutoring · {SITE.stats.courses} courses
           </p>
           <Link href="/dashboard" className="btn">
             Dashboard

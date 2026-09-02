@@ -1,21 +1,32 @@
 import type { Metadata } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Providers } from "@/components/Providers";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
-const display = Fraunces({
+/* One Roboto family across the site. Hierarchy comes from weight and tracking
+   rather than from mixing typefaces, so headings stay distinctly heavy. */
+const display = Roboto({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
+  weight: ["500", "700", "900"],
 });
 
-const body = DM_Sans({
+const body = Roboto({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
+  weight: ["300", "400", "500"],
+});
+
+const utility = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-utility",
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +41,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${utility.variable}`}
+    >
       <body>
         <a className="skip-link" href="#main">
           Skip to content

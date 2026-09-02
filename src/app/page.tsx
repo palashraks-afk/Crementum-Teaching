@@ -45,8 +45,8 @@ export default function HomePage() {
               <span className={styles.statLabel}>Sessions</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.statNum}>{SITE.stats.branches}</span>
-              <span className={styles.statLabel}>Branches</span>
+              <span className={styles.statNum}>{SITE.stats.courses}</span>
+              <span className={styles.statLabel}>Courses</span>
             </div>
             <div className={styles.stat}>
               <span className={styles.statNum}>100%</span>
@@ -69,6 +69,36 @@ export default function HomePage() {
                 <p>{s.body}</p>
               </AnimatedItem>
             ))}
+          </AnimatedIn>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className={`shell ${styles.about}`}>
+          <AnimatedIn className={styles.aboutMedia}>
+            {/* Falls back to a labelled frame until the photo is dropped in. */}
+            <figure className={styles.photo}>
+              <img
+                src="/about-students.jpg"
+                alt="Three students working together at a table with laptops"
+                width={1024}
+                height={683}
+                loading="lazy"
+              />
+            </figure>
+          </AnimatedIn>
+
+          <AnimatedIn className={styles.aboutText} delay={0.1}>
+            <p className="eyebrow">About us</p>
+            <h2 className={styles.aboutTitle}>Students teaching students.</h2>
+            <p className={styles.aboutBody}>
+              We are a 501(c)(3) run by students. Our tutors sat the same classes, with the same
+              textbooks, a year or two ahead of you — so they know the parts that trip people up.
+            </p>
+            <p className={styles.aboutBody}>Every session is free. There is nothing to pay, ever.</p>
+            <Link href="/about" className="link">
+              More about us
+            </Link>
           </AnimatedIn>
         </div>
       </section>

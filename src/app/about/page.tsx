@@ -67,10 +67,6 @@ export default function AboutPage() {
                   <dd>{SITE.stats.sessions}</dd>
                 </div>
                 <div>
-                  <dt>Branches</dt>
-                  <dd>{SITE.stats.branches}</dd>
-                </div>
-                <div>
                   <dt>Courses</dt>
                   <dd>{SITE.stats.courses}</dd>
                 </div>

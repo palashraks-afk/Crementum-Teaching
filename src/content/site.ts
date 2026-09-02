@@ -7,9 +7,10 @@ export const SITE = {
   email: "crementumteaching@gmail.com",
   instagram: "https://www.instagram.com/crementumtutoring/",
   instagramHandle: "@crementumtutoring",
+  /* Branch count is deliberately not a public stat — the map on /branches is
+     the honest answer, and it updates itself when a branch is added. */
   stats: {
-    sessions: "1,400+",
-    branches: "20+",
+    sessions: "1,500+",
     courses: String(COURSES.length),
   },
 } as const;
