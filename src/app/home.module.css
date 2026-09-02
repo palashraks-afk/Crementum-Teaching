@@ -152,8 +152,9 @@
   border: 1px solid var(--rule);
 }
 
+/* Shows only if the photo ever fails to load; the image covers it otherwise. */
 .photo::after {
-  content: "photo pending — save as /public/about-students.jpg";
+  content: "photo unavailable";
   position: absolute;
   inset: 0;
   display: grid;

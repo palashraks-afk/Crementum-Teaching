@@ -76,13 +76,12 @@ export default function HomePage() {
       <section className="band">
         <div className={`shell ${styles.about}`}>
           <AnimatedIn className={styles.aboutMedia}>
-            {/* Falls back to a labelled frame until the photo is dropped in. */}
             <figure className={styles.photo}>
               <img
-                src="/about-students.jpg"
-                alt="Three students working together at a table with laptops"
-                width={1024}
-                height={683}
+                src="/about-students.avif"
+                alt="Three Crementum students working together at a table with laptops"
+                width={740}
+                height={493}
                 loading="lazy"
               />
             </figure>
