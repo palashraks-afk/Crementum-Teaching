@@ -1,44 +1,28 @@
-.grid {
-  list-style: none;
-  margin: 1.75rem 0 0;
-  padding: 0;
+/* ---------- people with bios ---------- */
+
+.people {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
-  gap: 1.5rem 1.25rem;
+  gap: 2.5rem;
+  margin-top: 1.75rem;
 }
 
-.trigger {
+.person {
   display: grid;
-  gap: 0;
-  width: 100%;
-  background: none;
-  border: 0;
-  padding: 0;
-  text-align: center;
-  cursor: pointer;
-  font: inherit;
-  color: inherit;
-}
-
-.trigger:disabled {
-  cursor: default;
+  gap: 1.25rem;
+  align-items: start;
 }
 
 .portrait {
-  aspect-ratio: 1;
+  margin: 0;
+  width: 100%;
+  max-width: 13rem;
+  aspect-ratio: 3 / 4;
   display: grid;
   place-items: center;
   background: var(--cream);
   border: 1px solid var(--rule);
   border-radius: 12px;
   overflow: hidden;
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
-}
-
-.trigger:not(:disabled):hover .portrait,
-.portrait[data-open] {
-  border-color: var(--orange);
-  transform: translateY(-3px);
 }
 
 .photo {
@@ -49,8 +33,8 @@
 }
 
 .silhouette {
-  width: 52%;
-  height: 52%;
+  width: 46%;
+  height: 46%;
   fill: none;
   stroke: var(--ink-45);
   stroke-width: 3.5;
@@ -58,66 +42,17 @@
   opacity: 0.5;
 }
 
-.name {
-  margin-top: 0.7rem;
-  font-family: var(--display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  min-height: 1.2em;
+.text {
+  min-width: 0;
 }
 
-/* An empty nameplate reads as a waiting slot, not a mistake. */
-.name[data-empty] {
-  border-bottom: 2px dotted var(--rule);
-  width: 60%;
-  margin-inline: auto;
+.name {
+  font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.7rem);
+  letter-spacing: -0.03em;
 }
 
 .role {
-  margin-top: 0.2rem;
-  font-family: var(--utility);
-  font-size: 0.5625rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-45);
-  line-height: 1.4;
-}
-
-.more {
-  margin-top: 0.4rem;
-  font-family: var(--utility);
-  font-size: 0.5625rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--orange-deep);
-}
-
-/* ---------- expanded bio ---------- */
-
-.bio {
-  overflow: hidden;
-}
-
-.bioInner {
-  margin-top: 1.5rem;
-  padding: 1.4rem 1.5rem;
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-left: 3px solid var(--orange);
-  border-radius: 10px;
-}
-
-.bioHead {
-  margin-bottom: 0.9rem;
-}
-
-.bioName {
-  font-size: 1.3rem;
-  letter-spacing: -0.025em;
-}
-
-.bioRole {
-  margin-top: 0.15rem;
+  margin-top: 0.25rem;
   font-family: var(--utility);
   font-size: 0.5625rem;
   letter-spacing: 0.12em;
@@ -126,12 +61,82 @@
 }
 
 .bioText {
+  margin-top: 0.9rem;
   color: var(--ink-70);
-  max-width: 62ch;
   font-size: 0.9375rem;
   line-height: 1.65;
+  max-width: 62ch;
 }
 
-.bioText + .bioText {
-  margin-top: 0.8rem;
+/* ---------- roles still waiting on a name ---------- */
+
+.openRoles {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.openLabel {
+  font-family: var(--utility);
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.grid {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  gap: 1.25rem 1rem;
+}
+
+.slot {
+  text-align: center;
+}
+
+.slotPortrait {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slotName {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  min-height: 1.2em;
+}
+
+/* An empty nameplate reads as a waiting slot, not a mistake. */
+.slotName[data-empty] {
+  border-bottom: 2px dotted var(--rule);
+  width: 60%;
+  margin-inline: auto;
+}
+
+.slotRole {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--utility);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  line-height: 1.4;
+}
+
+@media (min-width: 40rem) {
+  .person {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    gap: 2rem;
+  }
 }
