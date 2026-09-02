@@ -81,6 +81,17 @@ export const TEAM: TeamMember[] = [
     ],
   },
   {
+    name: "Ansh Dwivedi",
+    role: "Chief Operating Officer",
+    photo: "/team/ansh-dwivedi.jpg",
+    bio: [
+      "Hello! My name is Ansh Dwivedi and I am proud to be a member of Crementum Tutoring, serving as co-Chief Operating Officer. I am honored to work alongside everyone as this organization keeps growing and reaching more schools across the nation.",
+      "I am an upcoming senior, enthusiastic about serving my community. Throughout high school I've challenged myself with AP courses, scoring 5s on AP Calculus BC, AP Language, AP U.S. History, and AP Psychology. I'm on our mock trial team as the best pretrial attorney in our county, and I've competed at the state level. I also volunteer at a local hospital and work at Kumon, tutoring children in math and English.",
+      "Through that work inside and outside the classroom I've built my confidence and teamwork, and connected with a lot of people across my community.",
+      "As Chief Operating Officer my goal is to strengthen how the organization runs. I'll be looking after the daily activities at Crementum to make sure everything works properly, and I want to speak with everyone here to learn more about them and make sure our plans come together. I'm excited to meet everyone, whether you're already part of this program or planning to join. Feel free to ask me any questions.",
+    ],
+  },
+  {
     name: "Alexander Volk",
     role: "Chief Marketing Officer",
     photo: "/team/alexander-volk.jpg",
