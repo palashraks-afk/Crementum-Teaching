@@ -64,11 +64,13 @@ export function TextField({
   type = "text",
   placeholder,
   autoComplete,
+  min,
   ...props
 }: BaseProps & {
-  type?: "text" | "email";
+  type?: "text" | "email" | "date" | "datetime-local";
   placeholder?: string;
   autoComplete?: string;
+  min?: string;
 }) {
   const { id, errorId, hintId } = useFieldIds(props.name, props.error);
   return (
@@ -77,6 +79,7 @@ export function TextField({
         id={id}
         name={props.name}
         type={type}
+        min={min}
         placeholder={placeholder}
         autoComplete={autoComplete}
         defaultValue={props.defaultValue}

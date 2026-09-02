@@ -4,7 +4,15 @@ import { headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { randomUUID } from "node:crypto";
 import { auth } from "@/auth";
-import { getBranches, getDb, getUserByEmail, setUserBranch, upsertUser } from "./db";
+import {
+  deleteBranch,
+  getBranches,
+  getDb,
+  getUserByEmail,
+  setUserBranch,
+  upsertBranch,
+  upsertUser,
+} from "./db";
 import { hashPassword } from "./passwords";
 import { notify } from "./mail";
 import { allow, sweep } from "./rate-limit";
@@ -50,8 +58,8 @@ export async function submitSessionRequest(
     "courseSlug",
     "courseLabel",
     "neededBy",
-    "details",
     "scheduledAt",
+    "details",
   ]);
 
   if (isBot(data)) return { ok: true, errors: {} };
@@ -106,7 +114,7 @@ export async function submitSessionRequest(
       ["Student", input.name],
       ["Email", input.email],
       ["Course", courseLabel],
-      ["When", input.neededBy || "ASAP"],
+      ["Date", input.scheduledAt],
       ["Details", input.details],
     ],
   });
@@ -208,6 +216,61 @@ export async function getUserBookings(email: string) {
 
 export async function checkAdmin(): Promise<boolean> {
   return isAdmin();
+}
+
+/* -------------------------------------------------------- admin: branches -- */
+
+function slugify(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40);
+}
+
+export async function saveBranch(_prev: FormState, data: FormData): Promise<FormState> {
+  if (!(await isAdmin())) return { ok: false, errors: {}, message: "Admin only." };
+
+  const city = text(data, "city").trim();
+  const region = text(data, "region").trim();
+  const country = text(data, "country").trim() || "USA";
+  const lat = Number(text(data, "lat"));
+  const lng = Number(text(data, "lng"));
+  const id = text(data, "id").trim() || slugify(`${city}-${region}`);
+
+  const errors: Record<string, string> = {};
+  if (city.length < 2) errors.city = "City is required.";
+  if (region.length < 2) errors.region = "Region is required.";
+  if (!Number.isFinite(lat) || lat < -90 || lat > 90) errors.lat = "Latitude between -90 and 90.";
+  if (!Number.isFinite(lng) || lng < -180 || lng > 180) errors.lng = "Longitude between -180 and 180.";
+  if (Object.keys(errors).length) return { ok: false, errors };
+
+  await upsertBranch({
+    id,
+    city,
+    region,
+    country,
+    lat,
+    lng,
+    hq: text(data, "hq") === "on",
+    school: text(data, "school").trim() || null,
+    lead: text(data, "lead").trim() || null,
+    contactEmail: text(data, "contactEmail").trim() || null,
+    founded: text(data, "founded").trim() || null,
+    about: text(data, "about").trim() || null,
+  });
+
+  revalidatePath("/branches");
+  revalidatePath("/admin");
+  return { ok: true, errors: {} };
+}
+
+export async function removeBranch(_prev: FormState, data: FormData): Promise<FormState> {
+  if (!(await isAdmin())) return { ok: false, errors: {}, message: "Admin only." };
+
+  const id = text(data, "id").trim();
+  if (!id) return { ok: false, errors: {}, message: "Missing branch id." };
+
+  await deleteBranch(id);
+  revalidatePath("/branches");
+  revalidatePath("/admin");
+  return { ok: true, errors: {} };
 }
 
 /* ------------------------------------------------------ editing bookings -- */

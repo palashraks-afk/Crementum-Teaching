@@ -4,12 +4,24 @@ import { createHash, timingSafeEqual } from "node:crypto";
 
 const COOKIE = "crementum_admin";
 
+/**
+ * ADMIN_PASSWORD is what .env.example documents; ADMIN_SECRET is accepted as
+ * an alias so an existing deployment set up with it keeps working.
+ */
+function adminSecret(): string | undefined {
+  return process.env.ADMIN_PASSWORD || process.env.ADMIN_SECRET || undefined;
+}
+
+export function adminEnabled(): boolean {
+  return Boolean(adminSecret());
+}
+
 function hash(secret: string): string {
   return createHash("sha256").update(secret).digest("hex");
 }
 
 export async function isAdmin(): Promise<boolean> {
-  const secret = process.env.ADMIN_SECRET;
+  const secret = adminSecret();
   if (!secret) return false;
   const jar = await cookies();
   const token = jar.get(COOKIE)?.value;
@@ -25,7 +37,7 @@ export async function isAdmin(): Promise<boolean> {
 }
 
 export async function setAdminSession(secret: string): Promise<boolean> {
-  const envSecret = process.env.ADMIN_SECRET;
+  const envSecret = adminSecret();
   if (!envSecret || secret !== envSecret) return false;
   const jar = await cookies();
   jar.set(COOKIE, hash(envSecret), {

@@ -1,50 +1,61 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Circle, useMap } from "react-leaflet";
 import { divIcon } from "leaflet";
 import { useEffect, useMemo } from "react";
 import type { DbBranch } from "@/server/db";
+import type { Focus } from "./BranchMap";
 import "leaflet/dist/leaflet.css";
 import styles from "./BranchMap.module.css";
 
-/** Continental US, which is where most branches are. */
 const USA: [number, number] = [39.5, -98.35];
 const USA_ZOOM = 4;
 const WORLD: [number, number] = [25, 0];
 const WORLD_ZOOM = 2;
 
-/**
- * A CSS-drawn pin. Using divIcon rather than Leaflet's default PNG avoids the
- * well-known broken-marker-image problem under bundlers entirely.
- */
-function pin(hq: boolean) {
+/** CSS-drawn pin — avoids Leaflet's default PNG breaking under bundlers. */
+function pin(kind: "hq" | "branch" | "active") {
   return divIcon({
     className: "",
-    html: `<span class="${styles.pin}" data-hq="${hq}"></span>`,
+    html: `<span class="${styles.pin}" data-kind="${kind}"></span>`,
     iconSize: [18, 18],
     iconAnchor: [9, 9],
-    popupAnchor: [0, -10],
   });
 }
 
-/** Imperative view control — react-leaflet has no declarative "fly to" prop. */
-function ViewControl({ view }: { view: "usa" | "world" }) {
+/** react-leaflet has no declarative pan/zoom prop, so drive it imperatively. */
+function ViewControl({ view, focus }: { view: "usa" | "world"; focus: Focus | null }) {
   const map = useMap();
+
   useEffect(() => {
+    if (focus) {
+      map.flyTo([focus.lat, focus.lng], focus.zoom, { duration: 0.9 });
+      return;
+    }
     const [center, zoom] = view === "usa" ? [USA, USA_ZOOM] : [WORLD, WORLD_ZOOM];
     map.flyTo(center as [number, number], zoom as number, { duration: 0.8 });
-  }, [view, map]);
+  }, [view, focus, map]);
+
   return null;
 }
 
 export default function LeafletMap({
   branches,
   view,
+  focus,
+  selectedId,
+  onSelect,
 }: {
   branches: DbBranch[];
   view: "usa" | "world";
+  focus: Focus | null;
+  selectedId: string | null;
+  onSelect: (branch: DbBranch) => void;
 }) {
-  const icons = useMemo(() => ({ hq: pin(true), normal: pin(false) }), []);
+  const icons = useMemo(
+    () => ({ hq: pin("hq"), branch: pin("branch"), active: pin("active") }),
+    [],
+  );
 
   return (
     <MapContainer
@@ -55,27 +66,31 @@ export default function LeafletMap({
       worldCopyJump
       className={styles.map}
     >
-      {/* Carto's light basemap keeps the map quiet so the orange pins read first. */}
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
       />
-      <ViewControl view={view} />
+      <ViewControl view={view} focus={focus} />
+
+      {/* Marks the searched or detected point so it reads as "you are here". */}
+      {focus ? (
+        <Circle
+          center={[focus.lat, focus.lng]}
+          radius={12000}
+          pathOptions={{ color: "#1d4ed8", fillColor: "#1d4ed8", fillOpacity: 0.18, weight: 2 }}
+        />
+      ) : null}
+
       {branches.map((branch) => (
         <Marker
           key={branch.id}
           position={[branch.lat, branch.lng]}
-          icon={branch.hq ? icons.hq : icons.normal}
-        >
-          <Popup>
-            <strong className={styles.popupCity}>{branch.city}</strong>
-            <span className={styles.popupRegion}>
-              {branch.region}
-              {branch.country ? `, ${branch.country}` : ""}
-            </span>
-            {branch.hq ? <span className={styles.popupHq}>Headquarters</span> : null}
-          </Popup>
-        </Marker>
+          icon={
+            branch.id === selectedId ? icons.active : branch.hq ? icons.hq : icons.branch
+          }
+          eventHandlers={{ click: () => onSelect(branch) }}
+          title={`${branch.city}, ${branch.region}`}
+        />
       ))}
     </MapContainer>
   );

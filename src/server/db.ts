@@ -106,6 +106,13 @@ export async function getDb(): Promise<Client> {
           user_id: "TEXT",
           scheduled_at: "TEXT",
         },
+        branches: {
+          school: "TEXT",
+          lead: "TEXT",
+          contact_email: "TEXT",
+          founded: "TEXT",
+          about: "TEXT",
+        },
       };
 
       for (const [table, columns] of Object.entries(ADDED_COLUMNS)) {
@@ -147,12 +154,17 @@ export type DbBranch = {
   lat: number;
   lng: number;
   hq: boolean;
+  /* Optional detail, filled in from /admin and shown when a pin is opened. */
+  school: string | null;
+  lead: string | null;
+  contactEmail: string | null;
+  founded: string | null;
+  about: string | null;
 };
 
-export async function getBranches(): Promise<DbBranch[]> {
-  const db = await getDb();
-  const result = await db.execute("SELECT * FROM branches ORDER BY hq DESC, city ASC");
-  return result.rows.map((row) => ({
+function toBranch(row: Record<string, unknown>): DbBranch {
+  const text = (v: unknown) => (v ? String(v) : null);
+  return {
     id: String(row.id),
     city: String(row.city),
     region: String(row.region),
@@ -160,7 +172,65 @@ export async function getBranches(): Promise<DbBranch[]> {
     lat: Number(row.lat),
     lng: Number(row.lng),
     hq: Boolean(row.hq),
-  }));
+    school: text(row.school),
+    lead: text(row.lead),
+    contactEmail: text(row.contact_email),
+    founded: text(row.founded),
+    about: text(row.about),
+  };
+}
+
+export async function getBranches(): Promise<DbBranch[]> {
+  const db = await getDb();
+  const result = await db.execute("SELECT * FROM branches ORDER BY hq DESC, city ASC");
+  return result.rows.map((row) => toBranch(row as unknown as Record<string, unknown>));
+}
+
+export async function upsertBranch(branch: {
+  id: string;
+  city: string;
+  region: string;
+  country: string;
+  lat: number;
+  lng: number;
+  hq: boolean;
+  school?: string | null;
+  lead?: string | null;
+  contactEmail?: string | null;
+  founded?: string | null;
+  about?: string | null;
+}): Promise<void> {
+  const db = await getDb();
+  await db.execute({
+    sql: `INSERT INTO branches
+            (id, city, region, country, lat, lng, hq, school, lead, contact_email, founded, about)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+          ON CONFLICT(id) DO UPDATE SET
+            city=excluded.city, region=excluded.region, country=excluded.country,
+            lat=excluded.lat, lng=excluded.lng, hq=excluded.hq,
+            school=excluded.school, lead=excluded.lead,
+            contact_email=excluded.contact_email, founded=excluded.founded,
+            about=excluded.about`,
+    args: [
+      branch.id,
+      branch.city,
+      branch.region,
+      branch.country,
+      branch.lat,
+      branch.lng,
+      branch.hq ? 1 : 0,
+      branch.school ?? null,
+      branch.lead ?? null,
+      branch.contactEmail ?? null,
+      branch.founded ?? null,
+      branch.about ?? null,
+    ],
+  });
+}
+
+export async function deleteBranch(id: string): Promise<void> {
+  const db = await getDb();
+  await db.execute({ sql: "DELETE FROM branches WHERE id = ?", args: [id] });
 }
 
 /* ---------------------------------------------------------------- users -- */

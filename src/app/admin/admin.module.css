@@ -1,0 +1,59 @@
+.title {
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.6rem);
+  margin-bottom: 1rem;
+}
+
+.note {
+  color: var(--ink-70);
+  max-width: var(--measure);
+}
+
+.note code {
+  font-family: var(--utility);
+  font-size: 0.8125rem;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+.bar {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.barInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.85rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.signOut {
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.5em 0.9em;
+  color: var(--ink-70);
+  cursor: pointer;
+}
+
+.signOut:hover {
+  border-color: var(--orange);
+  color: var(--orange-deep);
+}

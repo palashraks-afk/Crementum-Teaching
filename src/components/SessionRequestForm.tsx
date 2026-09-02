@@ -12,12 +12,12 @@ const GRADES = ["6th", "7th", "8th", "9th", "10th", "11th", "12th", "College", "
   (value) => ({ value, label: value }),
 );
 
-const WHEN = [
-  { value: "Tonight", label: "Tonight" },
-  { value: "In the next day or two", label: "In the next day or two" },
-  { value: "This week", label: "This week" },
-  { value: "No rush", label: "No rush" },
-];
+/** Local today in YYYY-MM-DD, so the picker can't offer a past day. */
+function todayISO() {
+  const now = new Date();
+  const offset = now.getTimezoneOffset() * 60000;
+  return new Date(now.getTime() - offset).toISOString().slice(0, 10);
+}
 
 /** Guests get their details remembered locally so a second booking is faster. */
 const STORE_KEY = "crementum:contact";
@@ -66,6 +66,7 @@ export function SessionRequestForm({ defaultName, defaultEmail }: Props) {
   const values = state.values ?? {};
   const nameValue = values.name ?? defaultName ?? remembered?.name ?? "";
   const emailValue = values.email ?? defaultEmail ?? remembered?.email ?? "";
+  const today = todayISO();
 
   function remember(form: FormData) {
     try {
@@ -172,14 +173,13 @@ export function SessionRequestForm({ defaultName, defaultEmail }: Props) {
           defaultValue={values.grade}
           error={state.errors.grade}
         />
-        <SelectField
-          name="neededBy"
-          label="When"
-          optional
-          placeholder="Select"
-          options={WHEN}
-          defaultValue={values.neededBy}
-          error={state.errors.neededBy}
+        <TextField
+          name="scheduledAt"
+          label="Date you want it"
+          type="date"
+          min={today}
+          defaultValue={values.scheduledAt}
+          error={state.errors.scheduledAt}
         />
       </div>
 

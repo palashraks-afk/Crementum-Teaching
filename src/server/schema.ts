@@ -25,7 +25,18 @@ export const sessionRequestSchema = z
     // "name the class" error on a field the student never needed to touch.
     courseLabel: z.string().trim().max(120).optional().or(z.literal("")),
     neededBy: z.string().trim().max(60).optional().or(z.literal("")),
-    scheduledAt: z.string().trim().max(40).optional().or(z.literal("")),
+    // Required: students pick an actual day rather than a vague "this week".
+    scheduledAt: z
+      .string()
+      .trim()
+      .min(1, "Pick a date.")
+      .refine((v) => !Number.isNaN(Date.parse(v)), "That date isn't valid.")
+      .refine((v) => {
+        const picked = new Date(v);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return picked >= today;
+      }, "Pick today or a day after."),
     details: z
       .string()
       .trim()
