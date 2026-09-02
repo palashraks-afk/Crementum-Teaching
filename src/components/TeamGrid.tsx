@@ -26,7 +26,12 @@ export function TeamGrid() {
             <figure className={styles.portrait}>
               {member.photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={member.photo} alt={member.name} className={styles.photo} />
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className={styles.photo}
+                  style={member.focus ? { objectPosition: member.focus } : undefined}
+                />
               ) : (
                 <Silhouette />
               )}
