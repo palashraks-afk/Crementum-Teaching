@@ -100,8 +100,8 @@ export const TEAM: TeamMember[] = [
     focus: "88% 20%",
     bio: [
       "Hi everyone! My name is Palash Rakshit and I serve as Chief Technology Officer at Crementum Teaching. I build and look after the tools behind this organization, from the booking system to the site you are reading right now, so that asking for help is never the hard part.",
-      "I built a machine learning system that predicts whether a patient needs an allergist referral, and presented it to faculty from MIT and Harvard, and to professionals from companies including Amgen and Johnson & Johnson, at MIT campus. I also work on OncoVision AI, a full-stack web application that reads standard patient blood panels and flags multi-cancer risk, a research project with a pediatric oncologist at UCI Children's cancer hospital. I write the Python and JavaScript and train the models.",
-      "In school I have scored 5s on AP Biology, AP European History, and AP Precalculus, and I have qualified for and competed at NSDA Debate Nationals. I also founded a district-wide MedTech Club that now has over 100 members, and I volunteer in the Medical-Surgical and Oncology wings at Arrowhead Regional Medical Center. If something on this site is broken, slow, or just annoying, tell me and I will fix it. I am always one email away.",
+      "I built a machine learning system that predicts whether a patient needs an allergist referral, and presented it to faculty from MIT and Harvard, and to professionals from companies including Amgen and Johnson & Johnson, at MIT campus.",
+      "I have scored multiple 5s on multiple AP exams, such as AP Biology, AP European History, and AP Precalculus, and I have qualified for and competed at NSDA Debate Nationals. I also work on OncoVision AI, a full-stack web application that reads standard patient blood panels and flags multi-cancer risk, which I built as a research project with a pediatric oncologist at UCI Children's cancer hospital. If something on this site is broken, slow, or just annoying, tell me and I will fix it. I am always one email away.",
     ],
   },
   {
