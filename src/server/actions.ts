@@ -93,7 +93,7 @@ export async function submitSessionRequest(
     return { ok: false, errors: {}, message: SAVE_FAILED, values };
   }
 
-  // So the dashboard's pending/confirmed cards pick the new row up immediately.
+  // So the Book page's pending/confirmed cards pick the new row up immediately.
   revalidatePath("/book");
 
   await notify({

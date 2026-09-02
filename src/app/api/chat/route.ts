@@ -154,7 +154,7 @@ export async function POST(req: Request) {
   if (!key) {
     return NextResponse.json({
       reply:
-        "I'm offline right now — book on the Dashboard, or email crementumteaching@gmail.com.",
+        "I'm offline right now — use the Book a Session tab, or email crementumteaching@gmail.com.",
     });
   }
 
@@ -214,11 +214,11 @@ export async function POST(req: Request) {
       });
     }
 
-    return NextResponse.json({ reply: "That got tangled. Try the Dashboard to book." });
+    return NextResponse.json({ reply: "That got tangled. Try the Book a Session tab." });
   } catch (error) {
     console.error("[chat]", error);
     return NextResponse.json({
-      reply: "Something broke. Book on the Dashboard, or email crementumteaching@gmail.com.",
+      reply: "Something broke. Use the Book a Session tab, or email crementumteaching@gmail.com.",
     });
   }
 }

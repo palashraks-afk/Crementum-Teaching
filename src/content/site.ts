@@ -73,7 +73,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Sai Patlola",
     role: "Chief Operating Officer",
-    photo: "/team/sai-patlola.png",
+    photo: "/team/sai-patlola.jpg",
     bio: [
       "Hi everyone! My name is Sai Patlola, and I am proud to be your Chief Operating Officer at Crementum. I'm always happy to meet new people and listen to new ideas and perspectives. My main goal is making free tutoring nationally accessible by expanding Crementum's reach across the country.",
       "I am a junior at Redlands High School and have earned 5s on multiple AP tests, including Precalculus and European History, and I have taught middle schoolers subjects like Python and math through programs I am involved in. Outside academics, I've built systems and improved efficiency at multiple nonprofits, and I've competed on my school's speech and debate team since freshman year — qualifying for both the NSDA National Tournament and the State tournament twice.",
@@ -83,7 +83,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Alexander Volk",
     role: "Chief Marketing Officer",
-    photo: "",
+    photo: "/team/alexander-volk.jpg",
     bio: [
       "Hello everyone! My name is Alexander Volk, and I am honored to serve as the Chief Marketing Officer at Crementum. My goal is to help more students discover what Crementum has to offer while building a stronger, more connected community.",
       "I am an upcoming senior with a passion for leadership, communication, and community involvement. I've earned scores of 5 on AP European History, AP U.S. History, AP Calculus BC, AP Precalculus, AP Computer Science A, and AP Language. Outside the classroom I've competed in Mock Trial at the state level, attended California Boys State, and worked as a lifeguard and swim instructor.",
@@ -97,11 +97,11 @@ export const TEAM: TeamMember[] = [
 ];
 
 export const FAQ = [
-  { q: "Where do I go to book a session?", a: "The Dashboard." },
+  { q: "Where do I go to book a session?", a: "The Book a Session tab." },
 ] as const;
 
-/* The logo links home and the Book button links to the dashboard, so neither
-   needs a nav slot. Start a Chapter lives on the Branches page. */
+/* The logo links home, so it needs no nav slot. Start a Chapter lives on the
+   Branches page. */
 export const NAV = [
   { href: "/book", label: "Book a Session" },
   { href: "/subjects", label: "Subjects" },
