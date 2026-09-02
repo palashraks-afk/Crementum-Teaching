@@ -59,6 +59,18 @@ export type TeamMember = {
 
 export const TEAM: TeamMember[] = [
   {
+    name: "Mani Momeni",
+    role: "Chief Executive Officer",
+    photo: "",
+    bio: [
+      "Hello everyone, my name is Mani Momeni and I am the CEO of Crementum Teaching. I am thrilled to be working with every one of you as we build Crementum across the nation — even at your own school.",
+      "I am an upcoming senior, and my strengths lie in science, math, and mock trial. I've taken AP Biology, AP Statistics, AP Chemistry, AP Calculus BC, and AP Precalculus, and I've done research at UCI, Loma Linda, and Clear Labs, which gave me real experience in the sciences and deepened my understanding of chemistry and biology.",
+      "I've been on a mock trial team since middle school. My team won our tournament this school year and advanced to the state championship, where we placed 11th — I started as both attorney and witness, and taught a lot of underclassmen the art of mock trial along the way.",
+      "I also have a history of teaching: at Mathnasium I tutored students in everything from 1st-grade math up to AP Calculus BC. That taught me every person approaches learning differently, especially in math — but every approach has a pattern, and teaching someone is never impossible.",
+      "Whether it's for tutoring or starting a new branch at your school, don't hesitate to reach out. I'm always one email away, and I can't wait to meet and talk with you all.",
+    ],
+  },
+  {
     name: "Sai Patlola",
     role: "Chief Operating Officer",
     photo: "/team/sai-patlola.png",
@@ -78,7 +90,6 @@ export const TEAM: TeamMember[] = [
       "Whether you're interested in starting a branch, growing an existing one, or simply learning more about Crementum, I would love to help — I'm always just an email away.",
     ],
   },
-  { name: "", role: "Chief Executive Officer", photo: "", bio: [] },
   { name: "", role: "Chief Technology Officer", photo: "", bio: [] },
   { name: "", role: "Chief Technology Officer", photo: "", bio: [] },
   { name: "", role: "Chief Financial Officer", photo: "", bio: [] },
