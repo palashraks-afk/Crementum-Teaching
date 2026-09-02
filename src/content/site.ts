@@ -92,6 +92,17 @@ export const TEAM: TeamMember[] = [
     ],
   },
   {
+    name: "Palash Rakshit",
+    role: "Chief Technology Officer",
+    photo: "/team/palash-rakshit.jpg",
+    bio: [
+      "Hi everyone! My name is Palash Rakshit and I serve as Chief Technology Officer at Crementum Teaching. I build and look after the tools behind this organization, from the booking system to the site you are reading right now, so that asking for help is never the hard part.",
+      "I am a sophomore in Redlands, California, ranked 9th out of 550 in my class. Most of my work sits where software meets medicine. My main project, OncoVision AI, is a full-stack web application that reads standard patient blood panels and flags multi-cancer risk, developed as a mentored research project under a clinical oncologist at UCI CHOC. I write the Python and JavaScript and train the models.",
+      "Outside my own research I train in computational biology through NASA GeneLab for High Schools, and I was selected for the MIT Jameel Clinic AI and Health Bootcamp, where I led a machine learning system that predicts whether a patient needs an allergist referral and presented it to MIT faculty and PhD researchers. I also founded a district-wide MedTech Club that now has over 100 members, and I volunteer in the Medical-Surgical and Oncology wings at Arrowhead Regional Medical Center.",
+      "As Chief Technology Officer my job is to keep everything students touch working properly and getting better. If something on this site is broken, slow, or just annoying, tell me and I will fix it. I am always one email away.",
+    ],
+  },
+  {
     name: "Alexander Volk",
     role: "Chief Marketing Officer",
     photo: "/team/alexander-volk.jpg",
@@ -101,7 +112,6 @@ export const TEAM: TeamMember[] = [
       "Whether you're interested in starting a branch, growing an existing one, or simply learning more about Crementum, I would love to help. I'm always just an email away.",
     ],
   },
-  { name: "", role: "Chief Technology Officer", photo: "", bio: [] },
   { name: "", role: "Chief Technology Officer", photo: "", bio: [] },
   { name: "", role: "Chief Financial Officer", photo: "", bio: [] },
   { name: "", role: "Chief Revenue Officer", photo: "", bio: [] },
