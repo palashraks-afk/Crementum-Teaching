@@ -1,0 +1,17 @@
+.cta {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ctaTitle {
+  font-size: clamp(1.8rem, 1.2rem + 2.6vw, 3rem);
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 48rem) {
+  .cta {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3rem;
+  }
+}

@@ -1,0 +1,102 @@
+.core {
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 5rem;
+}
+
+.core[data-alt] {
+  background: rgba(36, 56, 63, 0.045);
+}
+
+.inner {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.intro {
+  align-self: start;
+}
+
+.coreTitle {
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3.2rem);
+  letter-spacing: -0.04em;
+  margin: 0.8rem 0 1rem;
+}
+
+.coreBlurb {
+  color: var(--ink-70);
+  max-width: 32ch;
+}
+
+.courses {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+}
+
+.course {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  text-decoration: none;
+  font-family: var(--display);
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  transition: background 0.14s var(--ease), padding-inline 0.14s var(--ease);
+}
+
+.course:hover,
+.course:focus-visible {
+  background: var(--mark);
+  padding-inline: 0.6rem;
+}
+
+.go {
+  font-family: var(--utility);
+  font-size: 0.8rem;
+  color: var(--ink-45);
+  opacity: 0;
+  transform: translateX(-0.3em);
+  transition: opacity 0.14s var(--ease), transform 0.14s var(--ease);
+}
+
+.course:hover .go,
+.course:focus-visible .go {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--ink);
+}
+
+.closeTitle {
+  font-size: clamp(1.9rem, 1.2rem + 3vw, 3.4rem);
+  letter-spacing: -0.04em;
+  max-width: 16ch;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 56rem) {
+  .inner {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 4rem;
+  }
+
+  .courses {
+    columns: 2;
+    column-gap: 2.5rem;
+    border-top: 0;
+  }
+
+  .courses > li {
+    break-inside: avoid;
+  }
+
+  /* The rule that was on the list moves onto each column's first row so
+     both columns start against a line. */
+  .courses > li:first-child .course {
+    border-top: 1px solid var(--ink);
+  }
+}

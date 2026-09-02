@@ -1,0 +1,125 @@
+.dock {
+  position: fixed;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.55em 0.9em;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(28, 21, 18, 0.12);
+  transition: border-color 0.16s var(--ease), transform 0.16s var(--ease);
+}
+
+.tab:hover {
+  border-color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.caret {
+  transition: transform 0.18s var(--ease);
+  font-size: 0.7rem;
+}
+
+.caret[data-open] {
+  transform: rotate(180deg);
+}
+
+.card {
+  width: min(19rem, calc(100vw - 2.5rem));
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  box-shadow: 0 12px 34px rgba(28, 21, 18, 0.18);
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.title {
+  flex: 1;
+  font-family: var(--display);
+  font-size: 0.9rem;
+}
+
+.x {
+  background: none;
+  border: 0;
+  padding: 0.2rem;
+  color: var(--ink-45);
+  cursor: pointer;
+  line-height: 0;
+}
+
+.x svg {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+.x:hover {
+  color: var(--orange);
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0.7rem 0.8rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.steps li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.8125rem;
+}
+
+.num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-family: var(--utility);
+  font-size: 0.5625rem;
+}
+
+.body {
+  display: block;
+  color: var(--ink-70);
+  font-size: 0.75rem;
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 40rem) {
+  .dock {
+    left: 0.75rem;
+    bottom: 0.75rem;
+  }
+}

@@ -1,0 +1,115 @@
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.prompt {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 0.6rem;
+}
+
+.option {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.16s var(--ease), background 0.16s var(--ease),
+    transform 0.16s var(--ease);
+}
+
+.option:hover {
+  border-color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.option:focus-within {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px var(--orange-tint);
+}
+
+.option[data-selected] {
+  border-color: var(--orange);
+  background: var(--orange-tint);
+}
+
+.city {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.region {
+  font-family: var(--utility);
+  font-size: 0.5625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.error {
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  color: #a3341f;
+}
+
+/* ---------- settled state ---------- */
+
+.settled {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--cream);
+}
+
+.settledLabel {
+  font-family: var(--utility);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.settledName {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+.change {
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--ink-45);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.change:hover {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}

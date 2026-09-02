@@ -1,0 +1,189 @@
+.wrap {
+  max-width: 40rem;
+}
+
+/* ---------- search field ---------- */
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 0.2rem 0.9rem;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.field:focus-within {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px var(--orange-tint);
+}
+
+.icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  color: var(--ink-45);
+  transition: color 0.2s var(--ease);
+}
+
+.field:focus-within .icon {
+  color: var(--orange);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 0.95rem 0;
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--ink-45);
+}
+
+.input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.clear {
+  flex: none;
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  color: var(--ink-45);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.clear:hover {
+  color: var(--orange);
+}
+
+/* ---------- quick picks (empty state) ---------- */
+
+.picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.pick {
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.45em 0.85em;
+  color: var(--ink-70);
+  cursor: pointer;
+  transition: border-color 0.18s var(--ease), color 0.18s var(--ease),
+    background 0.18s var(--ease);
+}
+
+.pick:hover {
+  border-color: var(--orange);
+  background: var(--orange-tint);
+  color: var(--orange-deep);
+}
+
+/* ---------- results ---------- */
+
+.list {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 0.95rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-soft);
+  transition: background 0.14s var(--ease);
+}
+
+.list > li:last-child .row {
+  border-bottom: 0;
+}
+
+.row:hover,
+.row:focus-visible {
+  background: var(--cream);
+}
+
+.name {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.core {
+  font-family: var(--utility);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.go {
+  font-family: var(--utility);
+  font-size: 0.8rem;
+  color: var(--ink-45);
+  opacity: 0;
+  transform: translateX(-0.25em);
+  transition: opacity 0.14s var(--ease), transform 0.14s var(--ease);
+}
+
+.row:hover .go,
+.row:focus-visible .go {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--orange);
+}
+
+/* Kept semantic, styled flat — the coloured swipe read as tacky. */
+.hit {
+  background: none;
+  color: inherit;
+  font-weight: 700;
+}
+
+.more,
+.empty {
+  font-size: 0.875rem;
+  color: var(--ink-70);
+}
+
+.more {
+  padding: 0.7rem 0.95rem;
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-45);
+  background: var(--cream);
+}
+
+.empty {
+  margin-top: 0.85rem;
+}

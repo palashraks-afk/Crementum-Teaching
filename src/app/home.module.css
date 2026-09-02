@@ -1,0 +1,129 @@
+.hero {
+  padding-top: clamp(3rem, 8vw, 6rem);
+}
+
+.headline {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  margin-bottom: 1rem;
+}
+
+.sub {
+  font-size: 1.1rem;
+  color: var(--ink-70);
+  max-width: 28rem;
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.stats {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNum {
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--orange);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  margin-top: 0.25rem;
+}
+
+.index {
+  margin-top: 1rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 2rem;
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  color: var(--orange);
+  margin-bottom: 0.35rem;
+}
+
+.step p {
+  color: var(--ink-70);
+  font-size: 0.95rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.why {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+}
+
+.whyCard {
+  padding: 1.5rem;
+  border: 1px solid var(--rule-invert);
+  border-radius: 8px;
+  transition: transform 0.3s var(--ease-bounce);
+}
+
+.whyCard:hover {
+  transform: translateY(-4px);
+}
+
+.whyCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.whyCard p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.recognition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  justify-content: center;
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.close {
+  text-align: center;
+}
+
+.closeTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+}

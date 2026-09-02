@@ -1,0 +1,70 @@
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.side :global(.eyebrow) {
+  margin-top: 2rem;
+}
+
+.side :global(.eyebrow):first-child {
+  margin-top: 0;
+}
+
+.channels {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.channel {
+  font-family: var(--display);
+  font-size: clamp(1.15rem, 1rem + 0.8vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 2px solid var(--orange-tint);
+  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.channel:hover {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+
+.cta {
+  margin-top: 0.5rem;
+}
+
+.faq {
+  margin: 1.25rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+.faqItem {
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.faqQ {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.faqA {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--ink-70);
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4rem;
+  }
+}

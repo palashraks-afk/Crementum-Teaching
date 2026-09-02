@@ -1,0 +1,119 @@
+.grid {
+  display: grid;
+  gap: 3.5rem;
+}
+
+.prose {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 38rem;
+  font-size: clamp(1.0625rem, 1rem + 0.28vw, 1.1875rem);
+  line-height: 1.68;
+}
+
+.prose p {
+  margin: 0;
+}
+
+/* A pull quote earns its size by being the sentence the whole page is
+   arguing for. Set in the display face so it reads as a change of voice. */
+.pull {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 1.15rem + 1.7vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  border-left: 3px solid var(--mark);
+  padding-left: 1.25rem;
+  margin-block: 1rem !important;
+  max-width: 22ch;
+}
+
+.facts {
+  display: grid;
+  gap: 2.5rem;
+  align-content: start;
+}
+
+.factBlock {
+  border-top: 1px solid var(--ink);
+  padding-top: 1rem;
+}
+
+.factBlock :global(.eyebrow) {
+  margin-bottom: 1rem;
+}
+
+.factList {
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.factList > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--rule-soft);
+  padding-bottom: 0.5rem;
+}
+
+.factList dt {
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.factList dd {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.recognition {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.contact {
+  font-size: 0.9375rem;
+  line-height: 1.9;
+}
+
+.closeTitle {
+  font-size: clamp(1.8rem, 1.15rem + 2.8vw, 3.2rem);
+  letter-spacing: -0.04em;
+  max-width: 22ch;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 62rem) {
+  .grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    gap: 5rem;
+  }
+}
+
+.teamTitle {
+  font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.3rem);
+  margin-top: 0.6rem;
+}
+
+.close {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}

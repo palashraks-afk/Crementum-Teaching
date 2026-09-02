@@ -1,0 +1,191 @@
+.form {
+  display: grid;
+  gap: 1.6rem;
+  max-width: 38rem;
+}
+
+.pair {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.label {
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-70);
+}
+
+.optional {
+  color: var(--ink-45);
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+.control {
+  font-family: var(--body);
+  font-size: 1rem;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 0.75rem 0.85rem;
+  width: 100%;
+  transition: border-color 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+
+.control:hover {
+  border-color: var(--ink-45);
+}
+
+.control:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: inset 0 -3px 0 0 var(--mark);
+}
+
+.control::placeholder {
+  color: var(--ink-45);
+}
+
+textarea.control {
+  min-height: 8.5rem;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+select.control {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 1.25rem, calc(100% - 0.85rem) 1.25rem;
+  background-size: 0.3rem 0.3rem;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+}
+
+.invalid {
+  border-color: #a3341f;
+}
+
+.invalid:focus {
+  border-color: #a3341f;
+  box-shadow: inset 0 -3px 0 0 #a3341f;
+}
+
+.error {
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #a3341f;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: var(--ink-70);
+}
+
+.notice {
+  border-left: 3px solid #a3341f;
+  padding: 0.7rem 0 0.7rem 0.9rem;
+  font-size: 0.9375rem;
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.note {
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-45);
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Confirmation replaces the form entirely — there is nothing left to fill in. */
+.done {
+  max-width: 34rem;
+  border-top: 3px solid var(--mark);
+  padding-top: 1.75rem;
+}
+
+.doneTitle {
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 1.4rem + 1.8vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin-bottom: 1rem;
+}
+
+.doneBody {
+  color: var(--ink-70);
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 34rem) {
+  .pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- subject filters ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.filterLabel {
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  margin-right: 0.2rem;
+}
+
+.filterChip {
+  font-family: var(--utility);
+  font-size: 0.625rem;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.4em 0.8em;
+  color: var(--ink-70);
+  cursor: pointer;
+  transition: border-color 0.16s var(--ease), background 0.16s var(--ease),
+    color 0.16s var(--ease);
+}
+
+.filterChip:hover {
+  border-color: var(--orange);
+  color: var(--orange-deep);
+}
+
+.filterChip[data-active] {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}

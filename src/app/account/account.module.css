@@ -1,0 +1,57 @@
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.email {
+  font-family: var(--utility);
+  font-size: 0.75rem;
+  color: var(--ink-70);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.empty {
+  color: var(--ink-45);
+  font-size: 0.9375rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.8rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.course {
+  font-family: var(--display);
+  font-weight: 600;
+}
+
+.status {
+  font-family: var(--utility);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--orange-tint);
+  color: var(--orange-deep);
+  padding: 0.3em 0.6em;
+  border-radius: 3px;
+}
