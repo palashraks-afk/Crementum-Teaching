@@ -10,7 +10,7 @@ export const SITE = {
   /* Branch count is deliberately not a public stat — the map on /branches is
      the honest answer, and it updates itself when a branch is added. */
   stats: {
-    sessions: "1,500+",
+    sessions: "1,600+",
     courses: String(COURSES.length),
   },
 } as const;
@@ -47,18 +47,43 @@ export const RECOGNITION = [
 ];
 
 /**
- * Leadership slots. Names and portraits are intentionally blank — fill `name`
- * and drop a photo in /public/team/<file> when the team signs off on them.
+ * Leadership. Slots with an empty `name` render as a blank frame — fill in the
+ * name, bio and a photo under /public/team/ as each one is confirmed.
  */
-export const TEAM = [
-  { role: "Chief Executive Officer", name: "", photo: "" },
-  { role: "Chief Operating Officer", name: "", photo: "" },
-  { role: "Chief Operating Officer", name: "", photo: "" },
-  { role: "Chief Technology Officer", name: "", photo: "" },
-  { role: "Chief Technology Officer", name: "", photo: "" },
-  { role: "Chief Financial Officer", name: "", photo: "" },
-  { role: "Chief Revenue Officer", name: "", photo: "" },
-] as const;
+export type TeamMember = {
+  name: string;
+  role: string;
+  photo: string;
+  bio: string[];
+};
+
+export const TEAM: TeamMember[] = [
+  {
+    name: "Sai Patlola",
+    role: "Chief Operating Officer",
+    photo: "/team/sai-patlola.png",
+    bio: [
+      "Hi everyone! My name is Sai Patlola, and I am proud to be your Chief Operating Officer at Crementum. I'm always happy to meet new people and listen to new ideas and perspectives. My main goal is making free tutoring nationally accessible by expanding Crementum's reach across the country.",
+      "I am a junior at Redlands High School and have earned 5s on multiple AP tests, including Precalculus and European History, and I have taught middle schoolers subjects like Python and math through programs I am involved in. Outside academics, I've built systems and improved efficiency at multiple nonprofits, and I've competed on my school's speech and debate team since freshman year — qualifying for both the NSDA National Tournament and the State tournament twice.",
+      "As Chief Operating Officer I oversee how the organization runs day to day, and work on scaling it without making the tutoring experience any worse. Looking forward to meeting and working with everyone.",
+    ],
+  },
+  {
+    name: "Alexander Volk",
+    role: "Chief Marketing Officer",
+    photo: "",
+    bio: [
+      "Hello everyone! My name is Alexander Volk, and I am honored to serve as the Chief Marketing Officer at Crementum. My goal is to help more students discover what Crementum has to offer while building a stronger, more connected community.",
+      "I am an upcoming senior with a passion for leadership, communication, and community involvement. I've earned scores of 5 on AP European History, AP U.S. History, AP Calculus BC, AP Precalculus, AP Computer Science A, and AP Language. Outside the classroom I've competed in Mock Trial at the state level, attended California Boys State, and worked as a lifeguard and swim instructor.",
+      "Whether you're interested in starting a branch, growing an existing one, or simply learning more about Crementum, I would love to help — I'm always just an email away.",
+    ],
+  },
+  { name: "", role: "Chief Executive Officer", photo: "", bio: [] },
+  { name: "", role: "Chief Technology Officer", photo: "", bio: [] },
+  { name: "", role: "Chief Technology Officer", photo: "", bio: [] },
+  { name: "", role: "Chief Financial Officer", photo: "", bio: [] },
+  { name: "", role: "Chief Revenue Officer", photo: "", bio: [] },
+];
 
 export const FAQ = [
   { q: "Where do I go to book a session?", a: "The Dashboard." },

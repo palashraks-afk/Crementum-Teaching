@@ -7,8 +7,21 @@
   gap: 1.5rem 1.25rem;
 }
 
-.card {
+.trigger {
+  display: grid;
+  gap: 0;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
   text-align: center;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.trigger:disabled {
+  cursor: default;
 }
 
 .portrait {
@@ -22,7 +35,8 @@
   transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
 }
 
-.card:hover .portrait {
+.trigger:not(:disabled):hover .portrait,
+.portrait[data-open] {
   border-color: var(--orange);
   transform: translateY(-3px);
 }
@@ -31,6 +45,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .silhouette {
@@ -47,7 +62,7 @@
   margin-top: 0.7rem;
   font-family: var(--display);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   min-height: 1.2em;
 }
 
@@ -66,4 +81,57 @@
   text-transform: uppercase;
   color: var(--ink-45);
   line-height: 1.4;
+}
+
+.more {
+  margin-top: 0.4rem;
+  font-family: var(--utility);
+  font-size: 0.5625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange-deep);
+}
+
+/* ---------- expanded bio ---------- */
+
+.bio {
+  overflow: hidden;
+}
+
+.bioInner {
+  margin-top: 1.5rem;
+  padding: 1.4rem 1.5rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--orange);
+  border-radius: 10px;
+}
+
+.bioHead {
+  margin-bottom: 0.9rem;
+}
+
+.bioName {
+  font-size: 1.3rem;
+  letter-spacing: -0.025em;
+}
+
+.bioRole {
+  margin-top: 0.15rem;
+  font-family: var(--utility);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange-deep);
+}
+
+.bioText {
+  color: var(--ink-70);
+  max-width: 62ch;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.bioText + .bioText {
+  margin-top: 0.8rem;
 }

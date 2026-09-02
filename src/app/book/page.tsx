@@ -5,7 +5,7 @@ import styles from "./book.module.css";
 
 export const metadata: Metadata = {
   title: "Book a Session",
-  description: "Book a free one-on-one tutoring session. No account, no cost.",
+  description: "Book a free one-on-one tutoring session. Always free.",
 };
 
 const STEPS = [
@@ -23,7 +23,7 @@ export default function BookPage() {
             <Logo size={22} showText={false} />
             Book a Session
           </span>
-          <span className={styles.barNote}>Free · no account needed</span>
+          <span className={styles.barNote}>Always free</span>
         </div>
       </div>
 

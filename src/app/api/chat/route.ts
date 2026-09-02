@@ -52,7 +52,6 @@ ${faq}
 
 ## Where things are on the site
 - /book — book a session, see pending and confirmed classes
-- /account — sign in, set your nearest branch
 - /subjects — full course list
 - /branches — map of branches
 - /start-a-chapter — apply to run a branch

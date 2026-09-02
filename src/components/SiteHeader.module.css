@@ -12,12 +12,18 @@
   box-shadow: 0 4px 24px rgba(28, 21, 18, 0.08);
 }
 
+/* Three tracks so the nav sits optically centred regardless of how wide the
+   wordmark is: brand | nav | matching spacer. */
 .inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 1.5rem;
   padding-block: 0.85rem;
+}
+
+.spacer {
+  display: none;
 }
 
 .wordmark {
@@ -50,7 +56,9 @@
 .nav {
   display: none;
   align-items: center;
-  gap: 1.25rem;
+  justify-content: center;
+  gap: 1.5rem;
+  grid-column: 2;
 }
 
 .navLink {
@@ -140,6 +148,10 @@
   .toggle,
   .drawer {
     display: none;
+  }
+
+  .spacer {
+    display: block;
   }
 }
 

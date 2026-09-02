@@ -48,6 +48,9 @@ export function SiteHeader() {
           ))}
         </nav>
 
+        {/* Balances the wordmark's track so the nav lands dead centre. */}
+        <span className={styles.spacer} aria-hidden="true" />
+
         <button
           type="button"
           className={styles.toggle}
