@@ -97,7 +97,7 @@ export async function submitSessionRequest(
   revalidatePath("/book");
 
   await notify({
-    subject: `Session — ${courseLabel}`,
+    subject: `Session: ${courseLabel}`,
     replyTo: input.email,
     rows: [
       ["Student", input.name],
@@ -159,7 +159,7 @@ export async function submitChapterApplication(
   }
 
   await notify({
-    subject: `Chapter — ${input.region}`,
+    subject: `Chapter: ${input.region}`,
     replyTo: input.email,
     rows: [
       ["Name", `${input.firstName} ${input.lastName}`],
@@ -304,7 +304,7 @@ export async function sendQuestion(_prev: FormState, data: FormData): Promise<Fo
   }
 
   await notify({
-    subject: `Question — ${destination}`,
+    subject: `Question: ${destination}`,
     replyTo: values.email.trim(),
     rows: [
       ["From", values.name.trim()],

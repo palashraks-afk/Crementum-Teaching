@@ -50,7 +50,7 @@ export function BranchAdmin({ branches }: { branches: DbBranch[] }) {
       setEditing((prev) => ({ ...prev, lat: Number(hits[0].lat), lng: Number(hits[0].lon) }));
       setLookupNote("Coordinates filled in.");
     } catch {
-      setLookupNote("Lookup failed — enter coordinates by hand.");
+      setLookupNote("Lookup failed. Enter coordinates by hand.");
     } finally {
       setLookupBusy(false);
     }

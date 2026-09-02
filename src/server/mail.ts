@@ -43,13 +43,13 @@ function escapeHtml(value: string) {
 
 /**
  * Sends the notification when a key is configured, and logs it otherwise.
- * Delivery is never allowed to fail a submission — the row is already saved,
+ * Delivery is never allowed to fail a submission, the row is already saved,
  * and a dropped email is recoverable from the admin list.
  */
 export async function notify(notification: Notification): Promise<void> {
   if (!resend) {
     console.info(
-      `[crementum] RESEND_API_KEY not set — notification not sent:\n${renderText(notification)}`,
+      `[crementum] RESEND_API_KEY not set, notification not sent:\n${renderText(notification)}`,
     );
     return;
   }

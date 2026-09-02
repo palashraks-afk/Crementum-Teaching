@@ -162,7 +162,7 @@
   color: var(--orange);
 }
 
-/* Kept semantic, styled flat — the coloured swipe read as tacky. */
+/* Kept semantic, styled flat, the coloured swipe read as tacky. */
 .hit {
   background: none;
   color: inherit;

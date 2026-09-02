@@ -8,7 +8,7 @@ import styles from "@/app/book/book.module.css";
 type Booking = Awaited<ReturnType<typeof getClientBookings>>[number];
 
 function Card({ booking }: { booking: Booking }) {
-  // A requested date is not a confirmation — only staff moving the row to
+  // A requested date is not a confirmation, only staff moving the row to
   // 'scheduled' confirms it.
   const cancelled = booking.status === "cancelled";
   const confirmed = booking.status === "scheduled";

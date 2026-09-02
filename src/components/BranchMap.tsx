@@ -12,7 +12,7 @@ const LeafletMap = dynamic(() => import("./LeafletMap"), {
 
 export type Focus = { lat: number; lng: number; zoom: number };
 
-/** Great-circle distance in miles — good enough for "which branch is nearest". */
+/** Great-circle distance in miles, good enough for "which branch is nearest". */
 function milesBetween(aLat: number, aLng: number, bLat: number, bLng: number) {
   const toRad = (d: number) => (d * Math.PI) / 180;
   const R = 3958.8;
@@ -44,7 +44,7 @@ export function BranchMap({ branches }: { branches: DbBranch[] }) {
     [branches],
   );
 
-  /** Free-form place lookup via OpenStreetMap's Nominatim — no API key needed. */
+  /** Free-form place lookup via OpenStreetMap's Nominatim, no API key needed. */
   async function search(event: React.FormEvent) {
     event.preventDefault();
     const q = query.trim();
@@ -65,7 +65,7 @@ export function BranchMap({ branches }: { branches: DbBranch[] }) {
       setFocus({ lat, lng, zoom: 9 });
       const near = findNearest(lat, lng);
       setNearest(near);
-      if (near) setNote(`Closest branch: ${near.branch.city} — ${Math.round(near.miles)} mi.`);
+      if (near) setNote(`Closest branch: ${near.branch.city}, ${Math.round(near.miles)} mi.`);
     } catch {
       setNote("Search is unavailable right now.");
     } finally {
@@ -89,7 +89,7 @@ export function BranchMap({ branches }: { branches: DbBranch[] }) {
         setFocus({ lat, lng, zoom: 9 });
         const near = findNearest(lat, lng);
         setNearest(near);
-        if (near) setNote(`Closest branch: ${near.branch.city} — ${Math.round(near.miles)} mi.`);
+        if (near) setNote(`Closest branch: ${near.branch.city}, ${Math.round(near.miles)} mi.`);
         setBusy(null);
       },
       (error) => {

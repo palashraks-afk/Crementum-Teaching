@@ -2,7 +2,7 @@ const KEY = "crementum:client-id";
 
 /**
  * A random id kept in this browser. It is how a student sees their own
- * bookings without an account — and why one person's bookings never show up
+ * bookings without an account, and why one person's bookings never show up
  * for anyone else, which looking them up by email would allow.
  */
 export function getClientId(): string {

@@ -7,7 +7,7 @@ export const SITE = {
   email: "crementumteaching@gmail.com",
   instagram: "https://www.instagram.com/crementumtutoring/",
   instagramHandle: "@crementumtutoring",
-  /* Branch count is deliberately not a public stat — the map on /branches is
+  /* Branch count is deliberately not a public stat, the map on /branches is
      the honest answer, and it updates itself when a branch is added. */
   stats: {
     sessions: "1,600+",
@@ -47,7 +47,7 @@ export const RECOGNITION = [
 ];
 
 /**
- * Leadership. Slots with an empty `name` render as a blank frame — fill in the
+ * Leadership. Slots with an empty `name` render as a blank frame, fill in the
  * name, bio and a photo under /public/team/ as each one is confirmed.
  */
 export type TeamMember = {
@@ -63,10 +63,10 @@ export const TEAM: TeamMember[] = [
     role: "Chief Executive Officer",
     photo: "",
     bio: [
-      "Hello everyone, my name is Mani Momeni and I am the CEO of Crementum Teaching. I am thrilled to be working with every one of you as we build Crementum across the nation — even at your own school.",
+      "Hello everyone, my name is Mani Momeni and I am the CEO of Crementum Teaching. I am thrilled to be working with every one of you as we build Crementum across the nation, even at your own school.",
       "I am an upcoming senior, and my strengths lie in science, math, and mock trial. I've taken AP Biology, AP Statistics, AP Chemistry, AP Calculus BC, and AP Precalculus, and I've done research at UCI, Loma Linda, and Clear Labs, which gave me real experience in the sciences and deepened my understanding of chemistry and biology.",
-      "I've been on a mock trial team since middle school. My team won our tournament this school year and advanced to the state championship, where we placed 11th — I started as both attorney and witness, and taught a lot of underclassmen the art of mock trial along the way.",
-      "I also have a history of teaching: at Mathnasium I tutored students in everything from 1st-grade math up to AP Calculus BC. That taught me every person approaches learning differently, especially in math — but every approach has a pattern, and teaching someone is never impossible.",
+      "I've been on a mock trial team since middle school. My team won our tournament this school year and advanced to the state championship, where we placed 11th. I started as both attorney and witness, and taught a lot of underclassmen the art of mock trial along the way.",
+      "I also have a history of teaching: at Mathnasium I tutored students in everything from 1st-grade math up to AP Calculus BC. That taught me every person approaches learning differently, especially in math, but every approach has a pattern, and teaching someone is never impossible.",
       "Whether it's for tutoring or starting a new branch at your school, don't hesitate to reach out. I'm always one email away, and I can't wait to meet and talk with you all.",
     ],
   },
@@ -76,7 +76,7 @@ export const TEAM: TeamMember[] = [
     photo: "/team/sai-patlola.jpg",
     bio: [
       "Hi everyone! My name is Sai Patlola, and I am proud to be your Chief Operating Officer at Crementum. I'm always happy to meet new people and listen to new ideas and perspectives. My main goal is making free tutoring nationally accessible by expanding Crementum's reach across the country.",
-      "I am a junior at Redlands High School and have earned 5s on multiple AP tests, including Precalculus and European History, and I have taught middle schoolers subjects like Python and math through programs I am involved in. Outside academics, I've built systems and improved efficiency at multiple nonprofits, and I've competed on my school's speech and debate team since freshman year — qualifying for both the NSDA National Tournament and the State tournament twice.",
+      "I am a junior at Redlands High School and have earned 5s on multiple AP tests, including Precalculus and European History, and I have taught middle schoolers subjects like Python and math through programs I am involved in. Outside academics, I've built systems and improved efficiency at multiple nonprofits, and I've competed on my school's speech and debate team since freshman year, qualifying for both the NSDA National Tournament and the State tournament twice.",
       "As Chief Operating Officer I oversee how the organization runs day to day, and work on scaling it without making the tutoring experience any worse. Looking forward to meeting and working with everyone.",
     ],
   },
@@ -87,7 +87,7 @@ export const TEAM: TeamMember[] = [
     bio: [
       "Hello everyone! My name is Alexander Volk, and I am honored to serve as the Chief Marketing Officer at Crementum. My goal is to help more students discover what Crementum has to offer while building a stronger, more connected community.",
       "I am an upcoming senior with a passion for leadership, communication, and community involvement. I've earned scores of 5 on AP European History, AP U.S. History, AP Calculus BC, AP Precalculus, AP Computer Science A, and AP Language. Outside the classroom I've competed in Mock Trial at the state level, attended California Boys State, and worked as a lifeguard and swim instructor.",
-      "Whether you're interested in starting a branch, growing an existing one, or simply learning more about Crementum, I would love to help — I'm always just an email away.",
+      "Whether you're interested in starting a branch, growing an existing one, or simply learning more about Crementum, I would love to help. I'm always just an email away.",
     ],
   },
   { name: "", role: "Chief Technology Officer", photo: "", bio: [] },

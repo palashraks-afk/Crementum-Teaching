@@ -13,7 +13,7 @@ const USA_ZOOM = 4;
 const WORLD: [number, number] = [25, 0];
 const WORLD_ZOOM = 2;
 
-/** CSS-drawn pin — avoids Leaflet's default PNG breaking under bundlers. */
+/** CSS-drawn pin, avoids Leaflet's default PNG breaking under bundlers. */
 function pin(kind: "hq" | "branch" | "active") {
   return divIcon({
     className: "",

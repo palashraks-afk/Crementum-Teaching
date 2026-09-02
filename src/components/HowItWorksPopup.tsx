@@ -9,7 +9,7 @@ const KEY = "crementum:hiw-dismissed";
 
 /**
  * Once a student has booked once, the full "How it works" block is replaced by
- * this — parked bottom-left (the chat launcher owns bottom-right), collapsed,
+ * this, parked bottom-left (the chat launcher owns bottom-right), collapsed,
  * and dismissible for good.
  */
 export function HowItWorksPopup({ steps }: { steps: { title: string; body: string }[] }) {

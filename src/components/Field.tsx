@@ -43,7 +43,7 @@ function Shell({
     <div className={styles.field}>
       <label className={styles.label} htmlFor={id}>
         {label}
-        {optional ? <span className={styles.optional}> — optional</span> : null}
+        {optional ? <span className={styles.optional}> (optional)</span> : null}
       </label>
       {hint ? (
         <p className={styles.hint} id={hintId}>

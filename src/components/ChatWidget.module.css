@@ -154,7 +154,7 @@
   border-bottom-right-radius: 4px;
 }
 
-/* Typing indicator — three dots that bounce out of phase. */
+/* Typing indicator, three dots that bounce out of phase. */
 .typing {
   display: inline-flex;
   gap: 0.25rem;

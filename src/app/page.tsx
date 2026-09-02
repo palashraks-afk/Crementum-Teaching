@@ -92,7 +92,7 @@ export default function HomePage() {
             <h2 className={styles.aboutTitle}>Students teaching students.</h2>
             <p className={styles.aboutBody}>
               We are a 501(c)(3) run by students. Our tutors sat the same classes, with the same
-              textbooks, a year or two ahead of you — so they know the parts that trip people up.
+              textbooks, a year or two ahead of you, so they know the parts that trip people up.
             </p>
             <p className={styles.aboutBody}>Every session is free. There is nothing to pay, ever.</p>
             <Link href="/about" className="link">

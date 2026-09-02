@@ -121,7 +121,7 @@ select.control {
   overflow: hidden;
 }
 
-/* Confirmation replaces the form entirely — there is nothing left to fill in. */
+/* Confirmation replaces the form entirely, there is nothing left to fill in. */
 .done {
   max-width: 34rem;
   border-top: 3px solid var(--mark);

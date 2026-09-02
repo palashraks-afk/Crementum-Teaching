@@ -8,7 +8,7 @@ import styles from "./ChatWidget.module.css";
 
 type Message = { role: "user" | "assistant"; content: string };
 
-const GREETING = "Hi — what class are you stuck on?";
+const GREETING = "Hi! What class are you stuck on?";
 
 /** Shown until the student sends something, so the box is never a blank prompt. */
 const QUICK_REPLIES = ["Book a session", "What subjects?", "Is it really free?"];

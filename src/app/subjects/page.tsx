@@ -21,7 +21,7 @@ export default function SubjectsPage() {
         title="Everything we can staff today."
         lede={
           <>
-            This is the working list, not a wish list — every course here has tutors behind it
+            This is the working list, not a wish list. Every course here has tutors behind it
             right now. If yours is missing, ask anyway on the{" "}
             <Link href="/book" className="link">
               request form

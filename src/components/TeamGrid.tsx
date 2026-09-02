@@ -11,7 +11,7 @@ function Silhouette() {
 }
 
 /**
- * People with a bio get a full row — portrait beside their own words. Roles
+ * People with a bio get a full row, portrait beside their own words. Roles
  * still waiting on a name sit below as blank frames.
  */
 export function TeamGrid() {

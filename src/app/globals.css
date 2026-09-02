@@ -1,5 +1,5 @@
 /* ============================================================
-   Crementum Teaching — design tokens
+   Crementum Teaching, design tokens
    White ground, retro orange accent, warm near-black ink.
    Orange is the only saturated colour on the site: it marks
    search hits, the current page, and primary actions.
@@ -17,7 +17,7 @@
   --rust: #2b1408;
 
   /* Booking states. Orange stays the brand accent, so states get their own
-     hues — otherwise every pill looks the same at a glance. */
+     hues, otherwise every pill looks the same at a glance. */
   --pending: #1d4ed8;
   --pending-bg: #e8effd;
   --confirmed: #15803d;

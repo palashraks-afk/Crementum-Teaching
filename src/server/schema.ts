@@ -5,13 +5,13 @@ const name = z
   .string()
   .trim()
   .min(2, "Enter your name so a tutor knows who they are meeting.")
-  .max(80, "That is longer than we can store — shorten it.");
+  .max(80, "That is longer than we can store. Shorten it.");
 
 const email = z
   .string()
   .trim()
   .min(1, "We reply by email, so we need one that works.")
-  .email("That address is missing something — check for a typo.")
+  .email("That address is missing something. Check for a typo.")
   .max(160);
 
 export const sessionRequestSchema = z
@@ -20,7 +20,7 @@ export const sessionRequestSchema = z
     email,
     grade: z.string().trim().max(40).optional().or(z.literal("")),
     courseSlug: z.string().trim().max(80).optional().or(z.literal("")),
-    // Optional on its own — picking from the dropdown is enough. The refine
+    // Optional on its own, picking from the dropdown is enough. The refine
     // below requires one of the two, so choosing a course no longer trips a
     // "name the class" error on a field the student never needed to touch.
     courseLabel: z.string().trim().max(120).optional().or(z.literal("")),
@@ -40,7 +40,7 @@ export const sessionRequestSchema = z
     details: z
       .string()
       .trim()
-      .min(10, "Give us a sentence or two — the topic, the assignment, or the test date.")
+      .min(10, "Give us a sentence or two: the topic, the assignment, or the test date.")
       .max(2000, "Keep it under 2000 characters."),
   })
   .superRefine((value, ctx) => {

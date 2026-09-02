@@ -24,7 +24,7 @@ export default function AboutPage() {
         <div className={`shell ${styles.grid}`}>
           <div className={styles.prose}>
             {/*
-              TODO for the Crementum team: swap in the real founding story —
+              TODO for the Crementum team: swap in the real founding story ,
               who started it, which school, what year.
             */}
             <p>

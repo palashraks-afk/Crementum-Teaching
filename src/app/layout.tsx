@@ -32,8 +32,8 @@ const utility = Roboto_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://crementum.org"),
   title: {
-    default: `${SITE.name} — Free 1-on-1 Tutoring`,
-    template: `%s — ${SITE.name}`,
+    default: `${SITE.name}: Free 1-on-1 Tutoring`,
+    template: `%s | ${SITE.name}`,
   },
   description: "Free peer tutoring in Math, Science, Humanities & Speech. Book anytime.",
   icons: { icon: "/logo.png" },

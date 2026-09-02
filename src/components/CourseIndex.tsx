@@ -98,7 +98,7 @@ export function CourseIndex({ label }: { label: string }) {
           className={styles.input}
           value={raw}
           onChange={(event) => setRaw(event.target.value)}
-          placeholder="Search 36 classes — calculus, apush, chem…"
+          placeholder="Search 36 classes: calculus, apush, chem…"
           autoComplete="off"
           spellCheck={false}
         />
@@ -152,7 +152,7 @@ export function CourseIndex({ label }: { label: string }) {
                 </Link>
               </li>
             ))}
-            {overflow > 0 ? <li className={styles.more}>+{overflow} more — keep typing</li> : null}
+            {overflow > 0 ? <li className={styles.more}>+{overflow} more, keep typing</li> : null}
           </motion.ul>
         ) : (
           <motion.p

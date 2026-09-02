@@ -7,10 +7,10 @@ type Props = {
   children?: React.ReactNode;
   /**
    * Structural variant, so pages don't all open with the same block.
-   * default — left aligned on white
-   * split   — oversized figure on the left, title on the right
-   * center  — centred on a tinted band
-   * rule    — title sits under a heavy rule with the eyebrow inline
+   * default, left aligned on white
+   * split  , oversized figure on the left, title on the right
+   * center , centred on a tinted band
+   * rule   , title sits under a heavy rule with the eyebrow inline
    */
   variant?: "default" | "split" | "center" | "rule";
   /** Big figure shown by the `split` variant. */
