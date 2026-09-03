@@ -21,23 +21,37 @@ export default function HomePage() {
     <>
       <section className={`band ${styles.hero}`}>
         <div className="shell">
-          <AnimatedIn>
-            <p className="eyebrow">Free · 501(c)(3)</p>
-            <h1 className={styles.headline}>
-              Learning
-              <br />
-              <span className="mark">Unlocked</span>
-            </h1>
-            <p className={styles.sub}>Free 1-on-1 tutoring. Math, Science, Humanities & Speech.</p>
-            <div className={styles.actions}>
-              <Link href="/book" className="btn">
-                Book Free Session
-              </Link>
-              <Link href="/about" className="link">
-                Our Story
-              </Link>
-            </div>
-          </AnimatedIn>
+          <div className={styles.heroTop}>
+            <AnimatedIn className={styles.heroText}>
+              <p className="eyebrow">Free · 501(c)(3)</p>
+              <h1 className={styles.headline}>
+                Learning
+                <br />
+                <span className="mark">Unlocked</span>
+              </h1>
+              <p className={styles.sub}>Free 1-on-1 tutoring. Math, Science, Humanities & Speech.</p>
+              <div className={styles.actions}>
+                <Link href="/book" className="btn">
+                  Book Free Session
+                </Link>
+                <Link href="/about" className="link">
+                  Our Story
+                </Link>
+              </div>
+            </AnimatedIn>
+
+            <AnimatedIn className={styles.heroMedia} delay={0.08}>
+              <figure className={styles.photo}>
+                <img
+                  src="/hero-study.jpg"
+                  alt="Two students working through a textbook together"
+                  width={678}
+                  height={452}
+                  fetchPriority="high"
+                />
+              </figure>
+            </AnimatedIn>
+          </div>
 
           <AnimatedIn className={styles.stats} delay={0.1}>
             <div className={styles.stat}>

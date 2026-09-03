@@ -2,6 +2,26 @@
   padding-top: clamp(3rem, 8vw, 6rem);
 }
 
+/* Headline on the left, photo on the right. Stacks under 60rem so the photo
+   never squeezes the wordmark onto four lines. */
+.heroTop {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.heroText,
+.heroMedia {
+  min-width: 0;
+}
+
+@media (min-width: 60rem) {
+  .heroTop {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+    gap: 3rem;
+  }
+}
+
 .headline {
   font-size: clamp(3rem, 8vw, 5.5rem);
   margin-bottom: 1rem;
