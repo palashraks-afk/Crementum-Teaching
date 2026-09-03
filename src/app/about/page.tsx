@@ -48,7 +48,7 @@ export default function AboutPage() {
               A branch is a group of students at one school who recruit tutors and spread the word
               locally.{" "}
               <Link href="/branches" className="link">
-                See the map
+                Find a branch
               </Link>{" "}
               or{" "}
               <Link href="/start-a-chapter" className="link">

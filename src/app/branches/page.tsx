@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
-import { BranchMap } from "@/components/BranchMap";
+import { BranchFinder } from "@/components/BranchFinder";
 import { getBranches } from "@/server/db";
 import { SITE } from "@/content/site";
 import styles from "./branches.module.css";
 
 export const metadata: Metadata = {
   title: "Branches",
-  description: "Where Crementum Teaching runs. Sessions are online, so any branch can tutor any student.",
+  description: "Find a Crementum Teaching branch by city, school or director.",
 };
 
 // Branches are admin-editable, so this page reads live on each request.
@@ -28,14 +28,14 @@ export default async function BranchesPage() {
 
       <section className="band band--tight">
         <div className="shell">
-          <BranchMap branches={branches} />
+          <BranchFinder branches={branches} />
         </div>
       </section>
 
       <section className="band band--dark">
         <div className={`shell ${styles.cta}`}>
           <div>
-            <p className="eyebrow">Not on the map</p>
+            <p className="eyebrow">No branch near you</p>
             <h2 className={styles.ctaTitle}>Start one where you live.</h2>
           </div>
           <Link href="/start-a-chapter" className="btn">
