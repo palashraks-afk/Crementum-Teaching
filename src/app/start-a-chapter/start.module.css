@@ -35,8 +35,86 @@
   margin-top: 0.75rem;
 }
 
+.lede {
+  color: var(--ink-70);
+  max-width: 54ch;
+  margin-top: 0.9rem;
+}
+
 .form {
   margin-top: 2.25rem;
+}
+
+/* ---------- five point procedure ---------- */
+
+/* A numbered rail rather than the old flat arrow graphic, so the steps stay
+   readable at any width instead of shrinking to nothing on a phone. */
+.procedure {
+  list-style: none;
+  margin: 2.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.procedureStep {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.procedureStep p {
+  color: var(--ink);
+  font-size: 1.05rem;
+  max-width: 52ch;
+}
+
+.procedureNum {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--orange);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.6rem;
+}
+
+/* ---------- advantages ---------- */
+
+.advantages {
+  margin: 2.25rem 0 0;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.advantage {
+  border-left: 3px solid var(--orange);
+  padding-left: 1.1rem;
+}
+
+.advantage dt {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.advantage dd {
+  margin: 0;
+  color: var(--ink-70);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 48rem) {
+  .advantages {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
 }
 
 @media (min-width: 48rem) {

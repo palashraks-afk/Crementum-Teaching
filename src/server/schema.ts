@@ -55,25 +55,48 @@ export const sessionRequestSchema = z
     }
   });
 
+/** Long-answer question. Short enough to answer in a sitting, long enough to say something. */
+function essay(missing: string) {
+  return z.string().trim().min(20, missing).max(2000, "Keep it under 2000 characters.");
+}
+
+export const GRADES = ["9th", "10th", "11th", "12th"] as const;
+
 export const chapterApplicationSchema = z.object({
   firstName: name,
   lastName: name,
   email,
+  /** Anything other than email: a phone number, or a handle they check more. */
+  contact: z.string().trim().max(160).optional().or(z.literal("")),
+  grade: z.enum(GRADES, { errorMap: () => ({ message: "Pick your grade." }) }),
   school: z
     .string()
     .trim()
-    .min(2, "Tell us the school or organization this chapter would run out of.")
+    .min(2, "Tell us the school this branch would run out of.")
     .max(120),
+  schoolAddress: z
+    .string()
+    .trim()
+    .min(6, "Street, city and state is enough.")
+    .max(200),
   region: z
     .string()
     .trim()
     .min(2, "Name the city and state you would cover.")
     .max(120),
-  motivation: z
+  motivation: essay("A few sentences on what made you want to start a branch."),
+  leadership: essay("Tell us where you have led a team, in or out of school."),
+  existingTutoring: essay(
+    "Describe what your school already runs, or say plainly that it runs nothing.",
+  ),
+  activities: essay("List them with rough hours per week, so we know what your load looks like."),
+  clubDeadline: z
     .string()
     .trim()
-    .min(20, "A few sentences on why you want to run a chapter, and who you would reach.")
-    .max(2000, "Keep it under 2000 characters."),
+    .min(2, 'A date, "Already passed", or "N/A".')
+    .max(120),
+  officers: essay("Name and email for each person, one per line."),
+  questions: z.string().trim().max(2000, "Keep it under 2000 characters.").optional().or(z.literal("")),
 });
 
 export type SessionRequest = z.infer<typeof sessionRequestSchema>;

@@ -109,6 +109,19 @@ export async function getDb(): Promise<Client> {
           // bookings without an account, and without exposing anyone else's.
           client_id: "TEXT",
         },
+        // The application grew from five questions to a full form; existing
+        // rows keep their NULLs rather than needing a rebuild.
+        chapter_applications: {
+          contact: "TEXT",
+          grade: "TEXT",
+          school_address: "TEXT",
+          leadership: "TEXT",
+          existing_tutoring: "TEXT",
+          activities: "TEXT",
+          club_deadline: "TEXT",
+          officers: "TEXT",
+          questions: "TEXT",
+        },
         branches: {
           school: "TEXT",
           lead: "TEXT",

@@ -119,9 +119,18 @@ export async function submitChapterApplication(
     "firstName",
     "lastName",
     "email",
+    "contact",
+    "grade",
     "school",
+    "schoolAddress",
     "region",
     "motivation",
+    "leadership",
+    "existingTutoring",
+    "activities",
+    "clubDeadline",
+    "officers",
+    "questions",
   ]);
 
   if (isBot(data)) return { ok: true, errors: {} };
@@ -142,15 +151,26 @@ export async function submitChapterApplication(
     const db = await getDb();
     await db.execute({
       sql: `INSERT INTO chapter_applications
-              (first_name, last_name, email, school, region, motivation)
-            VALUES (?, ?, ?, ?, ?, ?)`,
+              (first_name, last_name, email, contact, grade, school, school_address,
+               region, motivation, leadership, existing_tutoring, activities,
+               club_deadline, officers, questions)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       args: [
         input.firstName,
         input.lastName,
         input.email,
+        input.contact || null,
+        input.grade,
         input.school,
+        input.schoolAddress,
         input.region,
         input.motivation,
+        input.leadership,
+        input.existingTutoring,
+        input.activities,
+        input.clubDeadline,
+        input.officers,
+        input.questions || null,
       ],
     });
   } catch (error) {
@@ -159,14 +179,23 @@ export async function submitChapterApplication(
   }
 
   await notify({
-    subject: `Chapter: ${input.region}`,
+    subject: `Branch application: ${input.school}`,
     replyTo: input.email,
     rows: [
       ["Name", `${input.firstName} ${input.lastName}`],
       ["Email", input.email],
+      ...(input.contact ? ([["Other contact", input.contact]] as [string, string][]) : []),
+      ["Grade", input.grade],
       ["School", input.school],
+      ["Address", input.schoolAddress],
       ["Region", input.region],
-      ["Why", input.motivation],
+      ["Inspiration", input.motivation],
+      ["Leadership", input.leadership],
+      ["Existing tutoring", input.existingTutoring],
+      ["Other activities", input.activities],
+      ["Club deadline", input.clubDeadline],
+      ["Officers", input.officers],
+      ...(input.questions ? ([["Questions", input.questions]] as [string, string][]) : []),
     ],
   });
 
