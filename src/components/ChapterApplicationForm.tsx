@@ -44,6 +44,7 @@ export function ChapterApplicationForm() {
 
       <div className={styles.pair}>
         <TextField
+          question
           name="firstName"
           label="First name"
           autoComplete="given-name"
@@ -51,6 +52,7 @@ export function ChapterApplicationForm() {
           error={state.errors.firstName}
         />
         <TextField
+          question
           name="lastName"
           label="Last name"
           autoComplete="family-name"
@@ -61,19 +63,18 @@ export function ChapterApplicationForm() {
 
       <div className={styles.pair}>
         <TextField
+          question
           name="email"
           label="Email"
           type="email"
           autoComplete="email"
-          placeholder="you@school.edu"
           defaultValue={values.email}
           error={state.errors.email}
         />
         <TextField
+          question
           name="contact"
-          label="Another way to reach you"
-          optional
-          hint="A phone number or a handle you check more often."
+          label="Email/Contact Information"
           defaultValue={values.contact}
           error={state.errors.contact}
         />
@@ -81,91 +82,86 @@ export function ChapterApplicationForm() {
 
       <div className={styles.pair}>
         <SelectField
+          question
           name="grade"
-          label="Grade this school year"
+          label="Grade for the 2026-2027 school year"
           placeholder="Select…"
           options={GRADES.map((g) => ({ value: g, label: g }))}
           defaultValue={values.grade}
           error={state.errors.grade}
         />
         <TextField
+          question
           name="school"
-          label="High school"
-          placeholder="Redlands High School"
+          label="High School"
           defaultValue={values.school}
           error={state.errors.school}
         />
       </div>
 
       <TextField
+        question
         name="schoolAddress"
-        label="School address"
-        placeholder="840 E Citrus Ave, Redlands, CA 92374"
+        label="High School Address"
         defaultValue={values.schoolAddress}
         error={state.errors.schoolAddress}
       />
 
-      <TextField
-        name="region"
-        label="Region you would cover"
-        hint="The area your branch would serve, which may be wider than your school."
-        placeholder="Inland Empire, CA"
-        defaultValue={values.region}
-        error={state.errors.region}
-      />
-
       <TextArea
+        question
         name="motivation"
-        label="What made you want to start a branch?"
-        hint="Who needs tutoring near you and is not getting it? Tell us what you already know about that."
-        placeholder="Two of the three high schools here cut their after-school tutoring last year…"
+        label="What inspired you to apply to start a Crementum branch?"
         defaultValue={values.motivation}
         error={state.errors.motivation}
       />
 
       <TextArea
+        question
         name="leadership"
-        label="Your leadership and team management experience"
+        label="Describe your leadership and team management experience."
         defaultValue={values.leadership}
         error={state.errors.leadership}
       />
 
       <TextArea
+        question
         name="existingTutoring"
-        label="Does your school already run tutoring?"
-        hint="Describe it. If there is nothing, say so, that is a useful answer too."
+        label="Does your school already have an established tutoring infrastructure? Please describe it below:"
         defaultValue={values.existingTutoring}
         error={state.errors.existingTutoring}
       />
 
       <TextArea
+        question
         name="activities"
-        label="Your other activities, with rough hours per week"
-        hint="Varsity basketball: 15 hours a week. Soup kitchen: 5 hours a week."
+        label="Describe your other activities, with an approximate weekly time commitment."
         defaultValue={values.activities}
         error={state.errors.activities}
       />
 
       <TextField
+        question
         name="clubDeadline"
-        label="Your school's club registration deadline this year"
-        hint='Write "Already passed" if it has gone, or "N/A" if you do not know.'
+        label={
+          "When is your school's club registration deadline for the 2026-2027 school year? " +
+          'Write "Already Passed" if it has passed, write "N/A" if you don\'t know.'
+        }
         defaultValue={values.clubDeadline}
         error={state.errors.clubDeadline}
       />
 
       <TextArea
+        question
         name="officers"
-        label="Who else would be an officer?"
-        hint="Name and email for each person, one per line."
-        placeholder={"Jordan Reyes, jordan@…\nSam Okafor, sam@…"}
+        label="Please provide the list of people who will be officers or part of the regional leadership at your school: (Name, Email)"
         defaultValue={values.officers}
         error={state.errors.officers}
       />
 
       <TextArea
+        question
         name="questions"
-        label="Questions, comments or concerns"
+        label="Do you have any questions, comments, concerns for us?"
         optional
         defaultValue={values.questions}
         error={state.errors.questions}

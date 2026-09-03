@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const STAGES = [
-  { when: "Week 1", title: "Apply", body: "Fill the form. We email you back." },
+  { when: "Week 1", title: "Apply", body: "Fill the form and we email you back." },
   { when: "Weeks 2–3", title: "Onboard", body: "You get the booking system and training docs." },
-  { when: "Week 4", title: "Launch", body: "Recruit tutors. Take your first session." },
+  { when: "Week 4", title: "Launch", body: "Recruit tutors, then take your first session." },
 ];
 
 /** The five-step tutoring loop a branch president would be running. */

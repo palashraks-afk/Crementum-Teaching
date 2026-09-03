@@ -79,11 +79,6 @@ export const chapterApplicationSchema = z.object({
     .trim()
     .min(6, "Street, city and state is enough.")
     .max(200),
-  region: z
-    .string()
-    .trim()
-    .min(2, "Name the city and state you would cover.")
-    .max(120),
   motivation: essay("A few sentences on what made you want to start a branch."),
   leadership: essay("Tell us where you have led a team, in or out of school."),
   existingTutoring: essay(
@@ -93,7 +88,7 @@ export const chapterApplicationSchema = z.object({
   clubDeadline: z
     .string()
     .trim()
-    .min(2, 'A date, "Already passed", or "N/A".')
+    .min(2, 'A date, "Already Passed", or "N/A".')
     .max(120),
   officers: essay("Name and email for each person, one per line."),
   questions: z.string().trim().max(2000, "Keep it under 2000 characters.").optional().or(z.literal("")),

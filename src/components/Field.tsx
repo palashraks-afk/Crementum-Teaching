@@ -10,6 +10,8 @@ type BaseProps = {
   hint?: string;
   optional?: boolean;
   defaultValue?: string;
+  /** Renders the label as a bold full-sentence question rather than a terse caption. */
+  question?: boolean;
 };
 
 function useFieldIds(name: string, error?: string) {
@@ -28,6 +30,7 @@ function Shell({
   hintId,
   error,
   errorId,
+  question,
   children,
 }: {
   id: string;
@@ -37,11 +40,15 @@ function Shell({
   hintId: string;
   error?: string;
   errorId?: string;
+  question?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <div className={styles.field}>
-      <label className={styles.label} htmlFor={id}>
+      <label
+        className={`${styles.label} ${question ? styles.labelQuestion : ""}`}
+        htmlFor={id}
+      >
         {label}
         {optional ? <span className={styles.optional}> (optional)</span> : null}
       </label>

@@ -93,9 +93,7 @@ export function SessionRequestForm({ onBooked }: Props) {
     return (
       <div className={styles.done}>
         <p className="eyebrow">Request received</p>
-        <h2 className={styles.doneTitle}>
-          It&apos;s in. Watch your email.
-        </h2>
+        <h2 className={styles.doneTitle}>Your request is in, so watch your email.</h2>
         <p className={styles.doneBody}>
           It&apos;s in the list above as Pending. A tutor reaches out to set a time, usually
           within hours.
@@ -206,7 +204,7 @@ export function SessionRequestForm({ onBooked }: Props) {
       <TextArea
         name="details"
         label="What do you want to work on"
-        placeholder="Unit 4 related rates. Test Friday."
+        placeholder="Unit 4 related rates, and I have a test on Friday."
         defaultValue={values.details}
         error={state.errors.details}
       />
@@ -218,7 +216,7 @@ export function SessionRequestForm({ onBooked }: Props) {
             →
           </span>
         </button>
-        <p className={styles.note}>No card. No cost.</p>
+        <p className={styles.note}>There is no card and no cost.</p>
       </div>
     </form>
   );

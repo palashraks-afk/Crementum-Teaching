@@ -5,14 +5,14 @@ import { SITE, RECOGNITION } from "@/content/site";
 import styles from "./home.module.css";
 
 const STEPS = [
-  { title: "Request", body: "Name your class. Done in 30 seconds." },
+  { title: "Request", body: "Tell us your class and it is done in about 30 seconds." },
   { title: "Match", body: "A tutor reaches out within hours." },
   { title: "Learn", body: "45–60 min, just you and your tutor." },
 ];
 
 const WHY = [
-  { title: "Free", body: "Always. No catch." },
-  { title: "1-on-1", body: "Your pace. Your subject." },
+  { title: "Free", body: "Every session costs nothing, and there is no catch anywhere in it." },
+  { title: "1-on-1", body: "You set the pace and you pick the subject." },
   { title: "On-demand", body: "Book anytime, even night-before." },
 ];
 
@@ -29,7 +29,9 @@ export default function HomePage() {
                 <br />
                 <span className="mark">Unlocked</span>
               </h1>
-              <p className={styles.sub}>Free 1-on-1 tutoring. Math, Science, Humanities & Speech.</p>
+              <p className={styles.sub}>
+                Free 1-on-1 tutoring in math, science, humanities and speech.
+              </p>
               <div className={styles.actions}>
                 <Link href="/book" className="btn">
                   Book Free Session
@@ -103,12 +105,12 @@ export default function HomePage() {
 
           <AnimatedIn className={styles.aboutText} delay={0.1}>
             <p className="eyebrow">About us</p>
-            <h2 className={styles.aboutTitle}>Students teaching students.</h2>
+            <h2 className={styles.aboutTitle}>Students teaching the students behind them.</h2>
             <p className={styles.aboutBody}>
               We are a 501(c)(3) run by students. Our tutors sat the same classes, with the same
               textbooks, a year or two ahead of you, so they know the parts that trip people up.
             </p>
-            <p className={styles.aboutBody}>Every session is free. There is nothing to pay, ever.</p>
+            <p className={styles.aboutBody}>Every session is free, and there is nothing to pay, ever.</p>
             <Link href="/about" className="link">
               More about us
             </Link>
@@ -120,7 +122,7 @@ export default function HomePage() {
         <div className="shell">
           <AnimatedIn>
             <p className="eyebrow">Why Crementum Teaching</p>
-            <h2 className={styles.sectionTitle}>Tutoring, simplified.</h2>
+            <h2 className={styles.sectionTitle}>Tutoring with the hard parts taken out.</h2>
           </AnimatedIn>
           <AnimatedIn stagger className={styles.why} delay={0.1}>
             {WHY.map((w) => (

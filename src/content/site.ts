@@ -3,7 +3,7 @@ import { COURSES } from "./catalog";
 export const SITE = {
   name: "Crementum Teaching",
   shortName: "Crementum",
-  tagline: "Free 1-on-1 tutoring.",
+  tagline: "Free 1-on-1 tutoring for any student who asks.",
   email: "crementumteaching@gmail.com",
   instagram: "https://www.instagram.com/crementumtutoring/",
   instagramHandle: "@crementumtutoring",

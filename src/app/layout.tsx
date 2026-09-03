@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { ChatMount } from "@/components/ChatMount";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
     default: `${SITE.name}: Free 1-on-1 Tutoring`,
     template: `%s | ${SITE.name}`,
   },
-  description: "Free peer tutoring in Math, Science, Humanities & Speech. Book anytime.",
+  description: "Free peer tutoring in math, science, humanities and speech, bookable anytime.",
   icons: { icon: "/logo.png" },
 };
 
@@ -52,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
-        <ChatMount />
       </body>
     </html>
   );

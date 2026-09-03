@@ -76,7 +76,7 @@ export function MyBookings({ refreshKey }: { refreshKey: number }) {
   if (bookings.length === 0) {
     return (
       <div className={styles.blank}>
-        <h2 className={styles.blankTitle}>No sessions yet.</h2>
+        <h2 className={styles.blankTitle}>You have no sessions yet.</h2>
         <p className={styles.blankBody}>Book one below and it shows up here.</p>
       </div>
     );

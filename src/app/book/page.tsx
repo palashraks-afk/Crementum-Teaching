@@ -5,7 +5,7 @@ import styles from "./book.module.css";
 
 export const metadata: Metadata = {
   title: "Book a Session",
-  description: "Book a free one-on-one tutoring session. Always free.",
+  description: "Book a free one-on-one tutoring session with a student tutor.",
 };
 
 const STEPS = [

@@ -123,7 +123,6 @@ export async function submitChapterApplication(
     "grade",
     "school",
     "schoolAddress",
-    "region",
     "motivation",
     "leadership",
     "existingTutoring",
@@ -163,7 +162,9 @@ export async function submitChapterApplication(
         input.grade,
         input.school,
         input.schoolAddress,
-        input.region,
+        // Legacy NOT NULL column. The application no longer asks for a region
+        // separately, the school address covers it.
+        "",
         input.motivation,
         input.leadership,
         input.existingTutoring,
@@ -188,7 +189,6 @@ export async function submitChapterApplication(
       ["Grade", input.grade],
       ["School", input.school],
       ["Address", input.schoolAddress],
-      ["Region", input.region],
       ["Inspiration", input.motivation],
       ["Leadership", input.leadership],
       ["Existing tutoring", input.existingTutoring],

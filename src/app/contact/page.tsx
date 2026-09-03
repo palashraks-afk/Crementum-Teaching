@@ -20,7 +20,7 @@ export default async function ContactPage() {
       <PageHeader
         variant="center"
         eyebrow="Contact"
-        title="Ask us something."
+        title="Ask us whatever you need to know."
         lede="Pick your branch, or send it to the head office."
       />
 

@@ -20,7 +20,7 @@ export function QuestionForm({ branches }: { branches: DbBranch[] }) {
     return (
       <div className={styles.done}>
         <p className="eyebrow">Sent</p>
-        <h2 className={styles.doneTitle}>We got it.</h2>
+        <h2 className={styles.doneTitle}>We have got your question.</h2>
         <p className={styles.doneBody}>Reply lands in your inbox, usually same day.</p>
       </div>
     );

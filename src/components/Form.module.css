@@ -22,10 +22,27 @@
   color: var(--ink-70);
 }
 
+/* Full-sentence questions, as on the branch application. Uppercase utility
+   type is unreadable at sentence length, so these use bold body text. */
+.labelQuestion {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
 .optional {
   color: var(--ink-45);
   text-transform: none;
   letter-spacing: 0.04em;
+}
+
+.labelQuestion .optional {
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .control {

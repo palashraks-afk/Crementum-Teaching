@@ -22,7 +22,7 @@ export default async function BranchesPage() {
       <PageHeader
         variant="rule"
         eyebrow="Branches"
-        title="Run locally. Open anywhere."
+        title="Run locally, open to anyone anywhere."
         lede="Sessions are online, so a student with no branch nearby gets matched just as fast."
       />
 
