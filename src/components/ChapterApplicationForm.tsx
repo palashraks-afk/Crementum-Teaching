@@ -1,15 +1,60 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { submitChapterApplication } from "@/server/actions";
 import { EMPTY_STATE, GRADES } from "@/server/schema";
+import { applyDraft, clearDraft, readDraft, saveDraft } from "./branch-draft";
 import { Honeypot, SelectField, TextArea, TextField } from "./Field";
 import styles from "./Form.module.css";
+
+/** Reads as "today at 9:40 PM" or "Sep 2 at 9:40 PM", so it follows "saved". */
+function savedLabel(iso: string) {
+  const when = new Date(iso);
+  const time = when.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  const day =
+    when.toDateString() === new Date().toDateString()
+      ? "today"
+      : when.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  return `${day} at ${time}`;
+}
 
 export function ChapterApplicationForm() {
   const [state, formAction, pending] = useActionState(submitChapterApplication, EMPTY_STATE);
   const values = state.values ?? {};
+
+  const formRef = useRef<HTMLFormElement>(null);
+  const [savedAt, setSavedAt] = useState<string | null>(null);
+  const [restored, setRestored] = useState(false);
+
+  // Put any saved answers back after hydration, so a half-finished
+  // application survives closing the tab.
+  useEffect(() => {
+    const draft = readDraft();
+    if (!draft || !formRef.current) return;
+    applyDraft(formRef.current, draft);
+    setSavedAt(draft.savedAt);
+    setRestored(true);
+  }, []);
+
+  // A sent application has nothing left to restore.
+  useEffect(() => {
+    if (state.ok) clearDraft();
+  }, [state.ok]);
+
+  function onSaveDraft() {
+    if (!formRef.current) return;
+    const draft = saveDraft(formRef.current);
+    setRestored(false);
+    setSavedAt(draft ? draft.savedAt : null);
+  }
+
+  function onDiscardDraft() {
+    clearDraft();
+    formRef.current?.reset();
+    setSavedAt(null);
+    setRestored(false);
+  }
 
   if (state.ok) {
     return (
@@ -33,13 +78,22 @@ export function ChapterApplicationForm() {
   }
 
   return (
-    <form action={formAction} className={styles.form} noValidate>
+    <form ref={formRef} action={formAction} className={styles.form} noValidate>
       <Honeypot />
 
       {state.message ? (
         <p className={styles.notice} role="alert">
           {state.message}
         </p>
+      ) : null}
+
+      {restored && savedAt ? (
+        <div className={styles.draftBar}>
+          <p>We put back the draft you saved {savedLabel(savedAt)}.</p>
+          <button type="button" className={styles.draftDiscard} onClick={onDiscardDraft}>
+            Start over
+          </button>
+        </div>
       ) : null}
 
       <div className={styles.pair}>
@@ -174,7 +228,14 @@ export function ChapterApplicationForm() {
             →
           </span>
         </button>
-        <p className={styles.note}>Reply usually within a few days.</p>
+        <button type="button" className="btn btn--ghost" onClick={onSaveDraft}>
+          Save draft
+        </button>
+        <p className={styles.note} aria-live="polite">
+          {!restored && savedAt
+            ? `Draft saved ${savedLabel(savedAt)}, on this device only.`
+            : "A reply usually lands within a few days."}
+        </p>
       </div>
     </form>
   );

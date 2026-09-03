@@ -108,6 +108,37 @@ select.control {
   color: var(--ink-70);
 }
 
+/* Shown once, when a saved draft has just been put back into the fields. */
+.draftBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  border-left: 3px solid var(--orange);
+  padding: 0.7rem 0 0.7rem 0.9rem;
+  background: var(--cream);
+}
+
+.draftBar p {
+  font-size: 0.9375rem;
+  color: var(--ink);
+}
+
+.draftDiscard {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--utility);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .notice {
   border-left: 3px solid #a3341f;
   padding: 0.7rem 0 0.7rem 0.9rem;
