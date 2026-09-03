@@ -63,7 +63,8 @@ export const TEAM: TeamMember[] = [
   {
     name: "Mani Momeni",
     role: "Chief Executive Officer",
-    photo: "",
+    photo: "/team/mani-momeni.jpg",
+    focus: "56% 18%",
     bio: [
       "Hello everyone, my name is Mani Momeni and I am the CEO of Crementum Teaching. I am thrilled to be working with every one of you as we build Crementum across the nation, even at your own school.",
       "I am an upcoming senior, and my strengths lie in science, math, and mock trial. I've taken AP Biology, AP Statistics, AP Chemistry, AP Calculus BC, and AP Precalculus, and I've done research at UCI, Loma Linda, and Clear Labs, which gave me real experience in the sciences and deepened my understanding of chemistry and biology.",
